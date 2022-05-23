@@ -1,7 +1,7 @@
 ﻿
 namespace ChatApplication.Contacts
 {
-    partial class ContactItem
+    partial class ContactDiscriptor
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,8 +30,8 @@ namespace ChatApplication.Contacts
         private void InitializeComponent()
         {
             this.profilePicture = new ChatApplication.CircularPictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.contactName = new System.Windows.Forms.Label();
-            this.lastSeen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,54 +43,52 @@ namespace ChatApplication.Contacts
             this.profilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.profilePicture.BorderSize = 2;
             this.profilePicture.GradientAngle = 50F;
-            this.profilePicture.Location = new System.Drawing.Point(2, 2);
+            this.profilePicture.Location = new System.Drawing.Point(485, 26);
             this.profilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(114, 114);
+            this.profilePicture.Size = new System.Drawing.Size(203, 203);
             this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 1;
+            this.profilePicture.TabIndex = 2;
             this.profilePicture.TabStop = false;
-            this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
             // 
             // contactName
             // 
-            this.contactName.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.contactName.Location = new System.Drawing.Point(121, 35);
+            this.contactName.AutoSize = true;
+            this.contactName.Location = new System.Drawing.Point(564, 252);
             this.contactName.Name = "contactName";
-            this.contactName.Size = new System.Drawing.Size(411, 23);
-            this.contactName.TabIndex = 2;
-            this.contactName.Text = "label1";
-            this.contactName.Click += new System.EventHandler(this.contactName_Click);
+            this.contactName.Size = new System.Drawing.Size(39, 15);
+            this.contactName.TabIndex = 4;
+            this.contactName.Text = "Name";
+            this.contactName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lastSeen
-            // 
-            this.lastSeen.Location = new System.Drawing.Point(121, 72);
-            this.lastSeen.Name = "lastSeen";
-            this.lastSeen.Size = new System.Drawing.Size(156, 18);
-            this.lastSeen.TabIndex = 3;
-            this.lastSeen.Text = "label2";
-            // 
-            // ContactItem
+            // ContactDiscriptor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.contactName);
-            this.Controls.Add(this.lastSeen);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.profilePicture);
-            this.Name = "ContactItem";
-            this.Size = new System.Drawing.Size(535, 118);
-            this.Load += new System.EventHandler(this.ContactItem_Load);
+            this.Name = "ContactDiscriptor";
+            this.Size = new System.Drawing.Size(1186, 628);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private CircularPictureBox profilePicture;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label contactName;
-        private System.Windows.Forms.Label lastSeen;
     }
 }

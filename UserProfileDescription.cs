@@ -18,6 +18,15 @@ namespace ChatApplication
                                                 // already have him as a contact if the visibility is false otherwise he can see any
                                                 //of his contacts photoand profile description./
 
+        public String getPhotoName()
+        {
+            return PhotoName;
+        }
+        public String getPhotoPath()
+        {
+            return PhotoPath;
+        }
+
         public UserProfileDescription(long userId, string photoPath, string photoName, string fileType, string aboutDescription, bool isVisible)
         {
             this.UserId = userId;
