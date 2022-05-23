@@ -27,8 +27,8 @@ namespace ChatApplication
 
         private void logIn_btn_Click(object sender, EventArgs e)
         {
-            //LogIn lg = new LogIn();
-            ContactList lg = new ContactList();
+            LogIn lg = new LogIn();
+            //ContactList lg = new ContactList();
             lg.Show();
             this.Hide();
         }
