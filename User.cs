@@ -11,14 +11,46 @@ namespace ChatApplication
     {
 		private static long  counter = 0;
 		private long  userId { get; set; }
-		private string mobileNumber { get; set; }
+		private string mobileNumber;
 		private string password { get; set; }
-		private string firstName { get; set; }
-		private string lastName { get; set; }
+
+		private string firstName;
+
+		public string MobileNumber
+		{
+			get { return mobileNumber; }
+			set { mobileNumber = value; }
+		}
+
+		public string FirstName 
+		{ 
+			get { return firstName; } 
+			set { firstName = value; } 
+		}
+
+		private string lastName;
+		public string LastName
+		{
+			get { return lastName; }
+			set { lastName = value; }
+		}
 
 		private ChatRoomInfo chatRoomInfo; //not in constructor bcz idk
 		private StoriesQueue<Story> userStories;
+
 		private UserProfileDescription userDescription;
+		public UserProfileDescription UserDescription
+		{
+			get { return userDescription; }
+			set { userDescription = value; }
+		}
+
+		public StoriesQueue<Story> UserStories
+        {
+			get { return userStories; }
+			set { userStories = value; }
+        }
+
 		private Dictionary<string, User> contacts; //pointer to user or userId
 													//priority_queue< tm, vector< pair< tm, ChatRoom*>>>  chatrooms; //pointer to chatrooms
 
