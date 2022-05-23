@@ -27,7 +27,7 @@ D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-w
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ChatApplication.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ref\ChatApplication.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ChatApplication.pdb
-D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.csproj.AssemblyReference.cache
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.ContactDiscriptor.resources
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.ContactItem.resources
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.ContactList.resources
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.CreateAccount.resources
@@ -45,4 +45,4 @@ D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-w
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ref\ChatApplication.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.pdb
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.genruntimeconfig.cache
-D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.ContactDiscriptor.resources
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.csproj.AssemblyReference.cache

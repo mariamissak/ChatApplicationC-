@@ -21,7 +21,12 @@ namespace ChatApplication
 			set { firstName = value; } 
 		}
 
-		private string lastName { get; set; }
+		private string lastName;
+		public string LastName
+		{
+			get { return lastName; }
+			set { lastName = value; }
+		}
 
 		private ChatRoomInfo chatRoomInfo; //not in constructor bcz idk
 		private StoriesQueue<Story> userStories;
@@ -32,6 +37,12 @@ namespace ChatApplication
 			get { return userDescription; }
 			set { userDescription = value; }
 		}
+
+		public StoriesQueue<Story> UserStories
+        {
+			get { return userStories; }
+			set { userStories = value; }
+        }
 
 		private Dictionary<string, User> contacts; //pointer to user or userId
 													//priority_queue< tm, vector< pair< tm, ChatRoom*>>>  chatrooms; //pointer to chatrooms

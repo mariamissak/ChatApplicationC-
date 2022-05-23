@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Windows.Forms;
 using System.IO;
-using System.Drawing.Drawing2D;
 
+using ChatApplication.Contacts;
 
 namespace ChatApplication.Contacts
 {
@@ -97,6 +97,7 @@ namespace ChatApplication.Contacts
                 imgResponse = (HttpWebResponse)imgRequest.GetResponse();
                 tempStream = imgResponse.GetResponseStream();
                 Bitmap avatarBitMap;
+
                 //set Background image
                 if (tempStream != null)
                 {
@@ -121,12 +122,12 @@ namespace ChatApplication.Contacts
 
         private void contactName_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void profilePicture_Click(object sender, EventArgs e)
-        {
-            contactName_Click(sender, e);
+        {    
+
         }
 
         private void ContactItem_Load(object sender, EventArgs e)
@@ -134,6 +135,12 @@ namespace ChatApplication.Contacts
             contactName.Text = _contact.FirstName;
             lastSeen.Text = "last seen yesterday";
             ImgUrl = _contact.UserDescription.getPhotoPath() + _contact.UserDescription.getPhotoName();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ContactList pForm = (ContactList)ParentForm;
+            pForm.populateContactInfo(_contact);
         }
     }
 }
