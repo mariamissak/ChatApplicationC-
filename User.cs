@@ -11,10 +11,17 @@ namespace ChatApplication
     {
 		private static long  counter = 0;
 		private long  userId { get; set; }
-		private string mobileNumber { get; set; }
+		private string mobileNumber;
 		private string password { get; set; }
 
 		private string firstName;
+
+		public string MobileNumber
+		{
+			get { return mobileNumber; }
+			set { mobileNumber = value; }
+		}
+
 		public string FirstName 
 		{ 
 			get { return firstName; } 

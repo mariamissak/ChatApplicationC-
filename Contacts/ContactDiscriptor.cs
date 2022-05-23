@@ -23,6 +23,7 @@ namespace ChatApplication.Contacts
         private string _imgUrl;
         private string _fullName;
         private string _description;
+        private string _phoneNumber;
 
 
 
@@ -70,9 +71,15 @@ namespace ChatApplication.Contacts
 
         private void ContactDiscriptor_Load(object sender, EventArgs e)
         {
-            contactName.Text = _contact.FirstName + " " +_contact.LastName;
+            _fullName = _contact.FirstName + " " + _contact.LastName;
+            contactName.Text = _fullName;
             _imgUrl = _contact.UserDescription.getPhotoPath() + _contact.UserDescription.getPhotoName();
             requestImageFromUrl(_imgUrl);
+
+            _phoneNumber = _contact.MobileNumber;
+            _description = _contact.UserDescription.getAboutDescription();
+            bio.Text = _description;
+            mobileNumber.Text = _phoneNumber;
         }
 
         private void bio_Click(object sender, EventArgs e)
@@ -88,6 +95,11 @@ namespace ChatApplication.Contacts
         private void profilePicture_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void storyViewButton_Click(object sender, EventArgs e)
+        {
+            //move to storyViewform
         }
     }
 }

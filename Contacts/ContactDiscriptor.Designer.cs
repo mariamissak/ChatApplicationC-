@@ -32,6 +32,8 @@ namespace ChatApplication.Contacts
             this.profilePicture = new ChatApplication.CircularPictureBox();
             this.contactName = new System.Windows.Forms.Label();
             this.bio = new System.Windows.Forms.Label();
+            this.storyViewButton = new ChatApplication.RoundedButton();
+            this.mobileNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@ namespace ChatApplication.Contacts
             this.profilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.profilePicture.BorderSize = 2;
             this.profilePicture.GradientAngle = 50F;
-            this.profilePicture.Location = new System.Drawing.Point(166, 2);
+            this.profilePicture.Location = new System.Drawing.Point(180, 2);
             this.profilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.profilePicture.Name = "profilePicture";
             this.profilePicture.Size = new System.Drawing.Size(203, 203);
@@ -55,7 +57,7 @@ namespace ChatApplication.Contacts
             // contactName
             // 
             this.contactName.AutoSize = true;
-            this.contactName.Location = new System.Drawing.Point(248, 219);
+            this.contactName.Location = new System.Drawing.Point(263, 220);
             this.contactName.Name = "contactName";
             this.contactName.Size = new System.Drawing.Size(39, 15);
             this.contactName.TabIndex = 4;
@@ -66,22 +68,54 @@ namespace ChatApplication.Contacts
             // bio
             // 
             this.bio.AutoSize = true;
-            this.bio.Location = new System.Drawing.Point(248, 248);
+            this.bio.Location = new System.Drawing.Point(263, 273);
             this.bio.Name = "bio";
             this.bio.Size = new System.Drawing.Size(38, 15);
             this.bio.TabIndex = 5;
             this.bio.Text = "label1";
             this.bio.Click += new System.EventHandler(this.bio_Click);
             // 
+            // storyViewButton
+            // 
+            this.storyViewButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.storyViewButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.storyViewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.storyViewButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.storyViewButton.BorderRadius = 20;
+            this.storyViewButton.BorderSize = 0;
+            this.storyViewButton.FlatAppearance.BorderSize = 0;
+            this.storyViewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.storyViewButton.ForeColor = System.Drawing.Color.White;
+            this.storyViewButton.Location = new System.Drawing.Point(242, 375);
+            this.storyViewButton.Margin = new System.Windows.Forms.Padding(2);
+            this.storyViewButton.Name = "storyViewButton";
+            this.storyViewButton.Size = new System.Drawing.Size(85, 42);
+            this.storyViewButton.TabIndex = 6;
+            this.storyViewButton.Text = "View Stories";
+            this.storyViewButton.TextColor = System.Drawing.Color.White;
+            this.storyViewButton.UseVisualStyleBackColor = false;
+            this.storyViewButton.Click += new System.EventHandler(this.storyViewButton_Click);
+            // 
+            // mobileNumber
+            // 
+            this.mobileNumber.AutoSize = true;
+            this.mobileNumber.Location = new System.Drawing.Point(263, 247);
+            this.mobileNumber.Name = "mobileNumber";
+            this.mobileNumber.Size = new System.Drawing.Size(38, 15);
+            this.mobileNumber.TabIndex = 7;
+            this.mobileNumber.Text = "label1";
+            // 
             // ContactDiscriptor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.mobileNumber);
+            this.Controls.Add(this.storyViewButton);
             this.Controls.Add(this.bio);
             this.Controls.Add(this.contactName);
             this.Controls.Add(this.profilePicture);
             this.Name = "ContactDiscriptor";
-            this.Size = new System.Drawing.Size(578, 364);
+            this.Size = new System.Drawing.Size(578, 461);
             this.Load += new System.EventHandler(this.ContactDiscriptor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
@@ -94,5 +128,7 @@ namespace ChatApplication.Contacts
         private CircularPictureBox profilePicture;
         private System.Windows.Forms.Label contactName;
         private System.Windows.Forms.Label bio;
+        private RoundedButton storyViewButton;
+        private System.Windows.Forms.Label mobileNumber;
     }
 }

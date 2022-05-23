@@ -31,8 +31,9 @@ namespace ChatApplication.Contacts
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.backButton = new ChatApplication.RoundedButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -40,9 +41,9 @@ namespace ChatApplication.Contacts
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 11);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 70);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 488);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 429);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -54,8 +55,16 @@ namespace ChatApplication.Contacts
             this.panel1.Size = new System.Drawing.Size(624, 526);
             this.panel1.TabIndex = 1;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(42, 70);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(554, 429);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.backButton);
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -63,12 +72,26 @@ namespace ChatApplication.Contacts
             this.panel2.Size = new System.Drawing.Size(364, 526);
             this.panel2.TabIndex = 2;
             // 
-            // flowLayoutPanel2
+            // backButton
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(42, 12);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(554, 487);
-            this.flowLayoutPanel2.TabIndex = 0;
+            this.backButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.backButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.backButton.BorderRadius = 20;
+            this.backButton.BorderSize = 0;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.ForeColor = System.Drawing.Color.White;
+            this.backButton.Location = new System.Drawing.Point(13, 11);
+            this.backButton.Margin = new System.Windows.Forms.Padding(2);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(85, 42);
+            this.backButton.TabIndex = 7;
+            this.backButton.Text = "<- back to chatrooms";
+            this.backButton.TextColor = System.Drawing.Color.White;
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // ContactList
             // 
@@ -92,5 +115,6 @@ namespace ChatApplication.Contacts
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private RoundedButton backButton;
     }
 }

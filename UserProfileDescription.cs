@@ -27,6 +27,11 @@ namespace ChatApplication
             return PhotoPath;
         }
 
+        public string getAboutDescription()
+        {
+            return AboutDescription;
+        }
+        
         public UserProfileDescription(long userId, string photoPath, string photoName, string fileType, string aboutDescription, bool isVisible)
         {
             this.UserId = userId;
