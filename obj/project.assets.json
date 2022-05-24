@@ -852,20 +852,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\farah\\.nuget\\packages\\": {}
+    "C:\\Users\\omrha\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj",
+      "projectUniqueName": "D:\\uni work\\Projects\\DataStructure\\chat app\\ChatApplicationC-\\ChatApplication.csproj",
       "projectName": "ChatApplication",
-      "projectPath": "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj",
-      "packagesPath": "C:\\Users\\farah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\farah\\source\\repos\\ChatApplication\\obj\\",
+      "projectPath": "D:\\uni work\\Projects\\DataStructure\\chat app\\ChatApplicationC-\\ChatApplication.csproj",
+      "packagesPath": "C:\\Users\\omrha\\.nuget\\packages\\",
+      "outputPath": "D:\\uni work\\Projects\\DataStructure\\chat app\\ChatApplicationC-\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\farah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\omrha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"
@@ -913,7 +921,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -105,6 +105,26 @@ namespace ChatApplication
             count--;
         }
 
+        public int findPrivateChatroom(long userId)
+        {
+            ChatRoomInfo tempinfo;
+            for (int i = 0; i < Length(); i++)
+            {
+                tempinfo = At(i).chatRoomInfo;
+                if (tempinfo.listOfUsers.Count == 2)
+                {
+                    foreach (User user in tempinfo.listOfUsers)
+                    {
+                        if (user.getUserId() == userId)
+                        {
+                            return i;
+                        }
+                    }
+                }
+            }
+
+            return -1;
+        }
         public void moveToTop(long chatRoomId)
         {
             Node tmp = head;

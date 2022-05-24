@@ -43,6 +43,10 @@ namespace ChatApplication
 
 			userDescription = new UserProfileDescription(this.userId,ProfilePicture, aboutDescription, isVisible);
 		}
+		public void setChatRoomList(ChatRoomsList chatRoomsList)
+        {
+			this.chatRoomsList = chatRoomsList;
+        }
 		public ChatRoomsList getChatRoomsList()
 		{
 			return chatRoomsList;

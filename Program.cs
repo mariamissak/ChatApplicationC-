@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ChatApplication.Contacts;
 
 namespace ChatApplication
 {
@@ -17,7 +18,7 @@ namespace ChatApplication
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ViewChatRooms());
+            Application.Run(new ContactList());
         }
     }
 }

@@ -34,6 +34,7 @@ namespace ChatApplication.Contacts
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.backButton = new ChatApplication.RoundedButton();
+            this.addContactButton = new ChatApplication.RoundedButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +65,7 @@ namespace ChatApplication.Contacts
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.addContactButton);
             this.panel2.Controls.Add(this.backButton);
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -93,6 +95,27 @@ namespace ChatApplication.Contacts
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // addContactButton
+            // 
+            this.addContactButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.addContactButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.addContactButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addContactButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.addContactButton.BorderRadius = 20;
+            this.addContactButton.BorderSize = 0;
+            this.addContactButton.FlatAppearance.BorderSize = 0;
+            this.addContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addContactButton.ForeColor = System.Drawing.Color.White;
+            this.addContactButton.Location = new System.Drawing.Point(118, 11);
+            this.addContactButton.Margin = new System.Windows.Forms.Padding(2);
+            this.addContactButton.Name = "addContactButton";
+            this.addContactButton.Size = new System.Drawing.Size(194, 42);
+            this.addContactButton.TabIndex = 8;
+            this.addContactButton.Text = "Add Contact using phone number";
+            this.addContactButton.TextColor = System.Drawing.Color.White;
+            this.addContactButton.UseVisualStyleBackColor = false;
+            this.addContactButton.Click += new System.EventHandler(this.addContactButton_Click);
+            // 
             // ContactList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -116,5 +139,6 @@ namespace ChatApplication.Contacts
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private RoundedButton backButton;
+        private RoundedButton addContactButton;
     }
 }

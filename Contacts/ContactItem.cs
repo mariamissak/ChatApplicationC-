@@ -23,7 +23,7 @@ namespace ChatApplication.Contacts
 
         #region Properties
         private User _contact;
-        private string _imgUrl;
+        private Image _img;
         private string _name;
         private string _lastSeen;
 
@@ -48,13 +48,13 @@ namespace ChatApplication.Contacts
         }
 
         [Category("Contacts Card")]
-        public string ImgUrl
+        public Image Img
         {
-            get { return _imgUrl; }
+            get { return _img; }
             set {
-                _imgUrl = value;
+                _img = value;
 
-                requestImageFromUrl(value);
+               // requestImageFromUrl(value);
             }
         }
 
@@ -86,7 +86,7 @@ namespace ChatApplication.Contacts
             }
         }*/
 
-        void requestImageFromUrl( string value)
+        /*void requestImageFromUrl( string value)
         {
             Stream tempStream = null;
             HttpWebResponse imgResponse = null;
@@ -117,7 +117,7 @@ namespace ChatApplication.Contacts
                     imgResponse.Close();
                 }
             }
-        }
+        }*/
         #endregion
 
         private void contactName_Click(object sender, EventArgs e)
@@ -132,9 +132,9 @@ namespace ChatApplication.Contacts
 
         private void ContactItem_Load(object sender, EventArgs e)
         {
-            contactName.Text = _contact.FirstName;
+            contactName.Text = _contact.getFirstName();
             lastSeen.Text = "last seen yesterday";
-            ImgUrl = _contact.UserDescription.getPhotoPath() + _contact.UserDescription.getPhotoName();
+            Img = _contact.GetUserProfileDescription().getProfilePicture();
         }
 
         private void button1_Click(object sender, EventArgs e)

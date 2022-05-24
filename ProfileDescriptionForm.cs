@@ -18,9 +18,10 @@ namespace ChatApplication
         MySqlConnection con;
 
         string c = "server=localhost;database=sakila;uid=root;pwd=root;";
-         Image ProfilePicture;
-         String AboutDescription;
-         Boolean IsVisible;
+        Image ProfilePicture;
+        String AboutDescription;
+        Boolean IsVisible;
+
         public ProfileDescriptionForm()
         {
             InitializeComponent();
