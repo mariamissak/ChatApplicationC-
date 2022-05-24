@@ -10,23 +10,27 @@ namespace ChatApplication
     public class ChatRoom
     {
 		private static long  counter { get; set; }
-		private long chatRoomId { get; set; }
+		public long chatRoomId { get { return chatRoomId; } set {; } }
 		private string chatRoomType { get; set; } //one to one chat or group chat
 		private DateTime lastDate { get; set; }
-		private ChatRoomInfo chatRoomInfo { get; set; }
-		private List<User> listOfUsers { get; set; } //2 in case of one to one chat and 2 or more in case of group chat
-
-		public ChatRoom(string chatRoomType, List<User> listOfUsers)
+		public ChatRoomInfo chatRoomInfo { get; set; }
+		private MessageStack<Message> messagestack;
+		public ChatRoom(string chatRoomType , List<User> listOfUsers )
 		{
 			counter++;
 			chatRoomId = counter;
 			this.chatRoomType = chatRoomType;
-			this.listOfUsers = listOfUsers;
+			chatRoomInfo = new ChatRoomInfo(listOfUsers, chatRoomId, lastDate);
 		}
 		public void setLastDate(DateTime lastDate)
 		{
 			this.lastDate = lastDate;
 		}
+
+		public MessageStack<Message> GetMessageStack()
+        {
+			return messagestack;
+        }
 
 	}
 }

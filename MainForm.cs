@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using ChatApplication;
-using ChatApplication.Contacts;
 
 
 namespace ChatApplication
@@ -28,7 +27,6 @@ namespace ChatApplication
         private void logIn_btn_Click(object sender, EventArgs e)
         {
             LogIn lg = new LogIn();
-            //ContactList lg = new ContactList();
             lg.Show();
             this.Hide();
         }

@@ -65,7 +65,7 @@ namespace ChatApplication
             this.next_btn.Location = new System.Drawing.Point(339, 378);
             this.next_btn.Name = "next_btn";
             this.next_btn.Size = new System.Drawing.Size(157, 60);
-            this.next_btn.TabIndex = 10;
+            this.next_btn.TabIndex = 20;
             this.next_btn.Text = "Next";
             this.next_btn.TextColor = System.Drawing.Color.White;
             this.next_btn.UseVisualStyleBackColor = false;
@@ -107,7 +107,7 @@ namespace ChatApplication
             this.password_txt.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.password_txt.PlaceholderText = "";
             this.password_txt.Size = new System.Drawing.Size(375, 39);
-            this.password_txt.TabIndex = 7;
+            this.password_txt.TabIndex = 5;
             this.password_txt.Texts = "";
             this.password_txt.UnderlinedStyle = false;
             // 
@@ -129,7 +129,7 @@ namespace ChatApplication
             this.phoneNumber_txt.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.phoneNumber_txt.PlaceholderText = "";
             this.phoneNumber_txt.Size = new System.Drawing.Size(375, 39);
-            this.phoneNumber_txt.TabIndex = 6;
+            this.phoneNumber_txt.TabIndex = 4;
             this.phoneNumber_txt.Texts = "";
             this.phoneNumber_txt.UnderlinedStyle = false;
             // 
@@ -151,7 +151,7 @@ namespace ChatApplication
             this.fname_txt.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.fname_txt.PlaceholderText = "";
             this.fname_txt.Size = new System.Drawing.Size(375, 39);
-            this.fname_txt.TabIndex = 12;
+            this.fname_txt.TabIndex = 2;
             this.fname_txt.Texts = "";
             this.fname_txt.UnderlinedStyle = false;
             // 
@@ -173,7 +173,7 @@ namespace ChatApplication
             this.lname_txt.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.lname_txt.PlaceholderText = "";
             this.lname_txt.Size = new System.Drawing.Size(375, 39);
-            this.lname_txt.TabIndex = 13;
+            this.lname_txt.TabIndex = 3;
             this.lname_txt.Texts = "";
             this.lname_txt.UnderlinedStyle = false;
             // 
