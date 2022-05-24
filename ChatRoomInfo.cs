@@ -8,13 +8,14 @@ namespace ChatApplication
 {
     public class ChatRoomInfo
     {
-        private long UserId { get; set; }
         private long ChatRoomId { get; set; }
         private DateTime LastSeen { get; set; }
 
-        public ChatRoomInfo(long userId, long chatRoomId, DateTime lastSeen)
+        public List<User> listOfUsers { get; set; } //2 in case of one to one chat and 2 or more in case of group chat
+
+        public ChatRoomInfo(List<User> listOfUsers, long chatRoomId, DateTime lastSeen)
         {
-            this.UserId = userId;
+            this.listOfUsers = listOfUsers;
             this.ChatRoomId = chatRoomId;
             this.LastSeen = lastSeen;
         }

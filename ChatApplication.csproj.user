@@ -4,17 +4,11 @@
     <Compile Update="CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Contacts\ContactDiscriptor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Contacts\ContactItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Contacts\ContactList.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="CreateAccount.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ListItem.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="LogIn.cs">
       <SubType>Form</SubType>

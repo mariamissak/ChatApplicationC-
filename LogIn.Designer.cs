@@ -30,7 +30,7 @@ namespace ChatApplication
         private void InitializeComponent()
         {
             this.phoneNumber_txt = new ChatApplication.TextBoxG();
-            this.lab = new ChatApplication.TextBoxG();
+            this.password_txt = new ChatApplication.TextBoxG();
             this.phoneNumber_label = new System.Windows.Forms.Label();
             this.password_label = new System.Windows.Forms.Label();
             this.logIn_btn = new ChatApplication.RoundedButton();
@@ -59,27 +59,27 @@ namespace ChatApplication
             this.phoneNumber_txt.Texts = "";
             this.phoneNumber_txt.UnderlinedStyle = false;
             // 
-            // lab
+            // password_txt
             // 
-            this.lab.BackColor = System.Drawing.SystemColors.Window;
-            this.lab.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.lab.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.lab.BorderRadius = 0;
-            this.lab.BorderSize = 2;
-            this.lab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lab.Location = new System.Drawing.Point(194, 200);
-            this.lab.Margin = new System.Windows.Forms.Padding(4);
-            this.lab.Multiline = false;
-            this.lab.Name = "lab";
-            this.lab.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.lab.PasswordChar = false;
-            this.lab.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.lab.PlaceholderText = "";
-            this.lab.Size = new System.Drawing.Size(375, 39);
-            this.lab.TabIndex = 1;
-            this.lab.Texts = "";
-            this.lab.UnderlinedStyle = false;
+            this.password_txt.BackColor = System.Drawing.SystemColors.Window;
+            this.password_txt.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.password_txt.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.password_txt.BorderRadius = 0;
+            this.password_txt.BorderSize = 2;
+            this.password_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.password_txt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.password_txt.Location = new System.Drawing.Point(194, 200);
+            this.password_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.password_txt.Multiline = false;
+            this.password_txt.Name = "password_txt";
+            this.password_txt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.password_txt.PasswordChar = true;
+            this.password_txt.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.password_txt.PlaceholderText = "";
+            this.password_txt.Size = new System.Drawing.Size(375, 39);
+            this.password_txt.TabIndex = 1;
+            this.password_txt.Texts = "";
+            this.password_txt.UnderlinedStyle = false;
             // 
             // phoneNumber_label
             // 
@@ -116,6 +116,7 @@ namespace ChatApplication
             this.logIn_btn.Text = "Log In";
             this.logIn_btn.TextColor = System.Drawing.Color.White;
             this.logIn_btn.UseVisualStyleBackColor = false;
+            this.logIn_btn.Click += new System.EventHandler(this.logIn_btn_Click);
             // 
             // label1
             // 
@@ -135,10 +136,11 @@ namespace ChatApplication
             this.Controls.Add(this.logIn_btn);
             this.Controls.Add(this.password_label);
             this.Controls.Add(this.phoneNumber_label);
-            this.Controls.Add(this.lab);
+            this.Controls.Add(this.password_txt);
             this.Controls.Add(this.phoneNumber_txt);
             this.Name = "LogIn";
             this.Text = "LogIn";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,7 +149,7 @@ namespace ChatApplication
         #endregion
 
         private TextBoxG phoneNumber_txt;
-        private TextBoxG lab;
+        private TextBoxG password_txt;
         private System.Windows.Forms.Label phoneNumber_label;
         private System.Windows.Forms.Label password_label;
         private RoundedButton logIn_btn;
