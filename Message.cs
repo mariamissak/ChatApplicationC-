@@ -11,9 +11,13 @@ namespace ChatApplication
     {
 		private static long counter = 0;
 		private long  messageId { get; set; }
-		private long  userId { get; set; } //who wrote the message
-		private string text { get; set; }
-		private Status messageStatus { get; set; }
+		public long MessageId { get { return messageId; } set { messageId = value; } }
+		private long userId;
+		public long  UserId { get { return userId; } set { userId = value; } } //who wrote the message
+		private string text { get ; set; }
+		public string Text { get { return text; } set { text = value; } }
+		private Status messageStatus;
+		public Status MessageStatus { get { return messageStatus; } set { messageStatus = value; } }
 		private long chatRoomId { get; set; }
        // public static long Counter { get => counter; set => counter = value; }
 
@@ -25,9 +29,20 @@ namespace ChatApplication
 			this.text = text;
 			this.chatRoomId = chatRoomId;
 			messageStatus = new Status();
-			MainForm.mainUser.getChatRoomsList().moveToTop(chatRoomId);
+			MainForm.mainUser.ChatRoomsList.moveToTop(chatRoomId);
 
 		}
+		public Message(long userId, long messageId,string text, long chatRoomId)
+		{
+			this.userId = userId;
+			this.messageId = messageId;
+			this.text = text;
+			this.chatRoomId = chatRoomId;
+			messageStatus = new Status();
+			MainForm.mainUser.ChatRoomsList.moveToTop(chatRoomId);
+		
+		}
+
 		public string getMessage()
 		{
 			return text;

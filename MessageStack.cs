@@ -59,13 +59,9 @@ namespace ChatApplication
             arr = tmp;
         }
 
-        public void ViewAll()
+        public T[] ViewAll()
         {
-            for (int i = 0; i < count; i++)
-            {
-                Console.WriteLine(arr[i]);
-
-            }
+            return arr;
         }
 
         public void Undo()
