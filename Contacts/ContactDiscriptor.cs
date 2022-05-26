@@ -112,41 +112,61 @@ namespace ChatApplication.Contacts
         private void chatButton_Click(object sender, EventArgs e)
         {
             int chatroomIndex = MainForm.mainUser.getChatRoomsList().findPrivateChatroom(_contact.getUserId());
+            ChatRoom newChatRoom;
             if ( chatroomIndex == -1) 
             {
                 List<User> users = new List<User>();
                 users.Insert(0,MainForm.mainUser);
                 users.Insert(1, _contact);
 
-                ChatRoom newChatRoom = new ChatRoom("private", users);
+                newChatRoom = new ChatRoom("private", users);
                 MainForm.mainUser.getChatRoomsList().InsertAt(0,newChatRoom);
                 chatroomIndex = 0;
+
+                //opening sql connection
+                MySqlConnection con;
+
+                string c = "server=localhost;database=sakila;uid=root;pwd=root;";
+
+                con = new MySqlConnection(c);
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = con;
+
+
+                cmd.CommandText = "insert into chatrooms values(@chatroomId,@private,@lastDate);";
+                cmd.Parameters.AddWithValue("@chatroomId", newChatRoom.chatRoomId);
+                cmd.Parameters.AddWithValue("@private", 1);
+                cmd.Parameters.AddWithValue("@lastDate", newChatRoom.getLastDate().ToString());
+                
+
+                int r = cmd.ExecuteNonQuery();
+                // if (r != -1)
+                // {
+                //     MessageBox.Show("Contact added successfully");
+                // }
+
+                cmd.CommandText = "insert into chatroomusers values(@chatroomId,@userId,@lastSeen);";
+                cmd.Parameters.AddWithValue("@chatroomId", newChatRoom.chatRoomId);
+                cmd.Parameters.AddWithValue("@userId", MainForm.mainUser.getUserId());
+                cmd.Parameters.AddWithValue("@lastSeen", DateTime.Now.ToString());
+
+                cmd.ExecuteNonQuery();
+                
+                cmd.CommandText = "insert into chatroomusers values(@chatroomId,@userId,@lastSeen);";
+                cmd.Parameters.AddWithValue("@chatroomId", newChatRoom.chatRoomId);
+                cmd.Parameters.AddWithValue("@userId", _contact.getUserId());
+                cmd.Parameters.AddWithValue("@lastSeen", DateTime.Now.ToString());
+
+                cmd.ExecuteNonQuery();
+
+                con.Dispose();
+
+            } else {
+                newChatRoom = MainForm.mainUser.getChatRoomsList().At(chatroomIndex);
             }
 
-            //opening sql connection
-            MySqlConnection con;
-
-            string c = "server=localhost;database=sakila;uid=root;pwd=root;";
-
-            con = new MySqlConnection(c);
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = con;
-
-
-            cmd.CommandText = "insert into Users values(@id,@phone,@IsVisible,@ProfilePicture);";
-            cmd.Parameters.AddWithValue("@id", MainForm.mainUser.getUserId());
-            cmd.Parameters.AddWithValue("@phone", MainForm.mainUser.getMobileNumber());
-            cmd.Parameters.AddWithValue("@pass", MainForm.mainUser.getPassword());
-            cmd.Parameters.AddWithValue("@fname", MainForm.mainUser.getFirstName());
-            cmd.Parameters.AddWithValue("@ProfilePicture", MainForm.mainUser.GetUserProfileDescription().getProfilePicture());
-
-            int r = cmd.ExecuteNonQuery();
-            if (r != -1)
-            {
-                MessageBox.Show("Contact added successfully");
-            }
-            con.Dispose();
+            
 
 
             //goes to new form 

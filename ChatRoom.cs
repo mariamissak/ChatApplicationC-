@@ -26,7 +26,10 @@ namespace ChatApplication
 		{
 			this.lastDate = lastDate;
 		}
-
+		public DateTime getLastDate()
+        {
+			return lastDate;
+        }
 		public MessageStack<Message> GetMessageStack()
         {
 			return messagestack;

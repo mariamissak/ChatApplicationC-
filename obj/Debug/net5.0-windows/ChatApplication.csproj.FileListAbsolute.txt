@@ -69,3 +69,4 @@ D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-w
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ZstdNet.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.csproj.CopyComplete
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.genruntimeconfig.cache
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.AddNewContactForm.resources

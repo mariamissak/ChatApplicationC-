@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,16 +36,28 @@ namespace ChatApplication.Contacts
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            
-
             if (dr.Read())
             {
+                MemoryStream memoryStream = new MemoryStream((byte)dr[7]);
+                
                 //need to grab user found info 
-                User contactUserFound = new User();// = user found
+                User contactUserFound = new User(Convert.ToInt64(dr[0]),dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),dr[4].ToString(),Image.FromStream(memoryStream),dr[5].ToString(),Convert.ToBoolean(dr[6]));// = user found
                 KeyValuePair<string, User> contact = new KeyValuePair<string, User>(phoneNumber_txt.textBox1.Text, contactUserFound);
                 MainForm.mainUser.getContactsList().Append(contact);
                 //db set main user  new contact list
+                // MessageBox.Show("Contact Added Successfully.");
                 //update DB
+
+                cmd.CommandText = "insert into contacts values(@id,@phone);";
+                cmd.Parameters.AddWithValue("@id", MainForm.mainUser.getUserId());
+                cmd.Parameters.AddWithValue("@phone", contactUserFound.getMobileNumber());
+
+                int r = cmd.ExecuteNonQuery();
+                if (r != -1)
+                {
+                    MessageBox.Show("Contact added successfully");
+                }
+
                 //refresh parent form
                 this.Close();
             }
