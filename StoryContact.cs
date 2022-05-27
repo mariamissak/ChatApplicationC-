@@ -33,6 +33,12 @@ namespace ChatApplication
             get { return _sContact; }
             set { _sContact = value; datepublished.Text = value.UserStories.Back().PublishedStoryTime.ToString();
                 profilePicture.Image = value.UserDescription.ProfilePicture;
+                
+                if (SContact == MainForm.mainUser)
+                {
+                    contactName.Text = "My Story";
+                }
+                else
                 contactName.Text = value.FirstName + " " + _sContact.LastName;
             }
         }
