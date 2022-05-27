@@ -17,7 +17,7 @@ namespace ChatApplication
     {
         MySqlConnection con;
 
-        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
+        string c = "server=localhost;database=chat;uid=root;pwd=root;";
          Image ProfilePicture;
          String AboutDescription;
          Boolean IsVisible;
@@ -28,8 +28,10 @@ namespace ChatApplication
 
         private void ProfileDescriptionForm_Load(object sender, EventArgs e)
         {
+           
             fnameUser_label.Text = CreateAccount.crfirstName;
             lnameUser_label.Text = CreateAccount.crlastName;
+            phone_no_user_label.Text = CreateAccount.crmobileNumber;
 
         }
 
@@ -53,14 +55,14 @@ namespace ChatApplication
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "insert into Users values(@id,@phone,@pass,@fname,@lname, @AboutDescription, @IsVisible,@ProfilePicture);";
-            cmd.Parameters.AddWithValue("@id", MainForm.mainUser.getUserId());
-            cmd.Parameters.AddWithValue("@phone", MainForm.mainUser.getMobileNumber());
-            cmd.Parameters.AddWithValue("@pass", MainForm.mainUser.getPassword());
-            cmd.Parameters.AddWithValue("@fname", MainForm.mainUser.getFirstName());
-            cmd.Parameters.AddWithValue("@lname", MainForm.mainUser.getLastName());
-            cmd.Parameters.AddWithValue("@AboutDescription", MainForm.mainUser.GetUserProfileDescription().getAboutDescription());
-            cmd.Parameters.AddWithValue("@isVisible", MainForm.mainUser.GetUserProfileDescription().getIsVisible());
-            cmd.Parameters.AddWithValue("@ProfilePicture", MainForm.mainUser.GetUserProfileDescription().getProfilePicture());
+            cmd.Parameters.AddWithValue("@id", MainForm.mainUser.UserId);
+            cmd.Parameters.AddWithValue("@phone", MainForm.mainUser.MobileNumber);
+            cmd.Parameters.AddWithValue("@pass", MainForm.mainUser.Password);
+            cmd.Parameters.AddWithValue("@fname", MainForm.mainUser.FirstName);
+            cmd.Parameters.AddWithValue("@lname", MainForm.mainUser.LastName);
+            cmd.Parameters.AddWithValue("@AboutDescription", MainForm.mainUser.UserDescription.AboutDescription);
+            cmd.Parameters.AddWithValue("@isVisible", MainForm.mainUser.UserDescription.IsVisible);
+            cmd.Parameters.AddWithValue("@ProfilePicture", MainForm.mainUser.UserDescription.ProfilePicture);
 
             int r =cmd.ExecuteNonQuery();
             if (r != -1)
@@ -69,6 +71,11 @@ namespace ChatApplication
                 MessageBox.Show("Account added successfully");
             }
             con.Dispose();
+        }
+
+        private void profilePicture_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
