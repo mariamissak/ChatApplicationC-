@@ -34,6 +34,7 @@ namespace ChatApplication.Contacts
             this.bio = new System.Windows.Forms.Label();
             this.storyViewButton = new ChatApplication.RoundedButton();
             this.mobileNumber = new System.Windows.Forms.Label();
+            this.chatButton = new ChatApplication.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,9 +71,9 @@ namespace ChatApplication.Contacts
             this.bio.AutoSize = true;
             this.bio.Location = new System.Drawing.Point(263, 273);
             this.bio.Name = "bio";
-            this.bio.Size = new System.Drawing.Size(38, 15);
+            this.bio.Size = new System.Drawing.Size(24, 15);
             this.bio.TabIndex = 5;
-            this.bio.Text = "label1";
+            this.bio.Text = "bio";
             this.bio.Click += new System.EventHandler(this.bio_Click);
             // 
             // storyViewButton
@@ -101,14 +102,36 @@ namespace ChatApplication.Contacts
             this.mobileNumber.AutoSize = true;
             this.mobileNumber.Location = new System.Drawing.Point(263, 247);
             this.mobileNumber.Name = "mobileNumber";
-            this.mobileNumber.Size = new System.Drawing.Size(38, 15);
+            this.mobileNumber.Size = new System.Drawing.Size(88, 15);
             this.mobileNumber.TabIndex = 7;
-            this.mobileNumber.Text = "label1";
+            this.mobileNumber.Text = "mobileNumber";
+            // 
+            // chatButton
+            // 
+            this.chatButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.chatButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.chatButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.chatButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.chatButton.BorderRadius = 20;
+            this.chatButton.BorderSize = 0;
+            this.chatButton.FlatAppearance.BorderSize = 0;
+            this.chatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chatButton.ForeColor = System.Drawing.Color.White;
+            this.chatButton.Location = new System.Drawing.Point(242, 329);
+            this.chatButton.Margin = new System.Windows.Forms.Padding(2);
+            this.chatButton.Name = "chatButton";
+            this.chatButton.Size = new System.Drawing.Size(85, 42);
+            this.chatButton.TabIndex = 8;
+            this.chatButton.Text = "chat";
+            this.chatButton.TextColor = System.Drawing.Color.White;
+            this.chatButton.UseVisualStyleBackColor = false;
+            this.chatButton.Click += new System.EventHandler(this.chatButton_Click);
             // 
             // ContactDiscriptor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chatButton);
             this.Controls.Add(this.mobileNumber);
             this.Controls.Add(this.storyViewButton);
             this.Controls.Add(this.bio);
@@ -130,5 +153,6 @@ namespace ChatApplication.Contacts
         private System.Windows.Forms.Label bio;
         private RoundedButton storyViewButton;
         private System.Windows.Forms.Label mobileNumber;
+        private RoundedButton chatButton;
     }
 }
