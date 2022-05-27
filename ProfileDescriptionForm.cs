@@ -71,11 +71,34 @@ namespace ChatApplication
                 MessageBox.Show("Account added successfully");
             }
             con.Dispose();
+            ViewChatRooms v= new ViewChatRooms();
+            v.Show();
         }
 
         private void profilePicture_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void profilePicture_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.*";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+
+                   profilePicture.ImageLocation = dialog.FileName;
+
+
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An Error ocurred", "Error", MessageBoxButtons.OK);
+            }
         }
     }
 }
