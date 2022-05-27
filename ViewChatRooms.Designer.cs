@@ -111,6 +111,9 @@ namespace ChatApplication
             this.iconButton3.Size = new System.Drawing.Size(79, 59);
             this.iconButton3.TabIndex = 15;
             this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            this.iconButton3.MouseHover += new System.EventHandler(this.iconButton3_MouseHover);
+
             // 
             // label6
             // 
@@ -139,6 +142,8 @@ namespace ChatApplication
             this.iconButton2.TabIndex = 13;
             this.iconButton2.UseVisualStyleBackColor = true;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            this.iconButton2.MouseHover += new System.EventHandler(this.iconButton2_MouseHover);
+
             // 
             // label4
             // 
@@ -166,6 +171,9 @@ namespace ChatApplication
             this.user_prof_btn.Size = new System.Drawing.Size(97, 60);
             this.user_prof_btn.TabIndex = 0;
             this.user_prof_btn.UseVisualStyleBackColor = true;
+            this.user_prof_btn.Click += new System.EventHandler(this.user_prof_btn_Click);
+            this.user_prof_btn.MouseHover += new System.EventHandler(this.user_prof_btn_MouseHover);
+
             // 
             // label3
             // 
@@ -191,6 +199,8 @@ namespace ChatApplication
             this.logout_btn.TabIndex = 10;
             this.logout_btn.UseVisualStyleBackColor = true;
             this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
+            this.logout_btn.MouseHover += new System.EventHandler(this.logout_btn_MouseHover);
+
             // 
             // label2
             // 
@@ -216,6 +226,8 @@ namespace ChatApplication
             this.iconButton1.Size = new System.Drawing.Size(97, 60);
             this.iconButton1.TabIndex = 0;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            this.iconButton1.MouseHover += new System.EventHandler(this.iconButton1_MouseHover);
             // 
             // mySqlCommand1
             // 
@@ -295,6 +307,9 @@ namespace ChatApplication
             this.participants_btn.Size = new System.Drawing.Size(99, 77);
             this.participants_btn.TabIndex = 11;
             this.participants_btn.UseVisualStyleBackColor = true;
+            this.participants_btn.Click += new System.EventHandler(this.participants_btn_Click);
+            this.participants_btn.MouseHover += new System.EventHandler(this.participants_btn_MouseHover);
+
             // 
             // label5
             // 
@@ -349,6 +364,7 @@ namespace ChatApplication
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewChatRooms";
             this.Text = "ViewChatRooms";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewChatRooms_FormClosing);
             this.Load += new System.EventHandler(this.ViewChatRooms_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
