@@ -25,7 +25,7 @@ namespace ChatApplication
 
         private void message_time_label_Click(object sender, EventArgs e)
         {
-            message_time_label.Text=MainForm.mainUser.ChatRoomsList.At(c.chatRoomId)
+            //message_time_label.Text = MainForm.mainUser.ChatRoomsList.At(c.chatRoomId);
         }
     }
 }

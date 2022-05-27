@@ -101,9 +101,5 @@ namespace ChatApplication
             }
         }
 
-        private void profilePicture_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

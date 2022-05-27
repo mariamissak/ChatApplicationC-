@@ -91,7 +91,7 @@ namespace ChatApplication
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(15, 33);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 25);
+            this.label7.Size = new System.Drawing.Size(70, 20);
             this.label7.TabIndex = 16;
             this.label7.Text = "Contacts";
             this.label7.Visible = false;
@@ -111,8 +111,6 @@ namespace ChatApplication
             this.iconButton3.Size = new System.Drawing.Size(79, 59);
             this.iconButton3.TabIndex = 15;
             this.iconButton3.UseVisualStyleBackColor = true;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
-            this.iconButton3.MouseHover += new System.EventHandler(this.iconButton3_MouseHover);
             // 
             // label6
             // 
@@ -120,11 +118,10 @@ namespace ChatApplication
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(103, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 25);
+            this.label6.Size = new System.Drawing.Size(57, 20);
             this.label6.TabIndex = 14;
             this.label6.Text = "Stories";
             this.label6.Visible = false;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // iconButton2
             // 
@@ -141,7 +138,7 @@ namespace ChatApplication
             this.iconButton2.Size = new System.Drawing.Size(93, 60);
             this.iconButton2.TabIndex = 13;
             this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.MouseHover += new System.EventHandler(this.iconButton2_MouseHover);
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // label4
             // 
@@ -149,7 +146,7 @@ namespace ChatApplication
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(177, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 25);
+            this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "View Profile";
             this.label4.Visible = false;
@@ -169,8 +166,6 @@ namespace ChatApplication
             this.user_prof_btn.Size = new System.Drawing.Size(97, 60);
             this.user_prof_btn.TabIndex = 0;
             this.user_prof_btn.UseVisualStyleBackColor = true;
-            this.user_prof_btn.Click += new System.EventHandler(this.user_prof_btn_Click);
-            this.user_prof_btn.MouseHover += new System.EventHandler(this.user_prof_btn_MouseHover);
             // 
             // label3
             // 
@@ -178,7 +173,7 @@ namespace ChatApplication
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(291, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 25);
+            this.label3.Size = new System.Drawing.Size(59, 20);
             this.label3.TabIndex = 11;
             this.label3.Text = "Logout";
             this.label3.Visible = false;
@@ -195,8 +190,7 @@ namespace ChatApplication
             this.logout_btn.Size = new System.Drawing.Size(97, 60);
             this.logout_btn.TabIndex = 10;
             this.logout_btn.UseVisualStyleBackColor = true;
-            this.logout_btn.Click += new System.EventHandler(this.iconButton2_Click);
-            this.logout_btn.MouseHover += new System.EventHandler(this.logout_btn_MouseHover);
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
             // label2
             // 
@@ -222,7 +216,6 @@ namespace ChatApplication
             this.iconButton1.Size = new System.Drawing.Size(97, 60);
             this.iconButton1.TabIndex = 0;
             this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.MouseHover += new System.EventHandler(this.iconButton1_MouseHover);
             // 
             // mySqlCommand1
             // 
@@ -274,7 +267,7 @@ namespace ChatApplication
             this.label1.Location = new System.Drawing.Point(551, 61);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(272, 45);
+            this.label1.Size = new System.Drawing.Size(230, 37);
             this.label1.TabIndex = 10;
             this.label1.Text = "Chat Room Title";
             // 
@@ -289,7 +282,6 @@ namespace ChatApplication
             this.send_icon_btn.Size = new System.Drawing.Size(65, 49);
             this.send_icon_btn.TabIndex = 10;
             this.send_icon_btn.UseVisualStyleBackColor = true;
-            this.send_icon_btn.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // participants_btn
             // 
@@ -303,8 +295,6 @@ namespace ChatApplication
             this.participants_btn.Size = new System.Drawing.Size(99, 77);
             this.participants_btn.TabIndex = 11;
             this.participants_btn.UseVisualStyleBackColor = true;
-            this.participants_btn.Click += new System.EventHandler(this.participants_btn_Click);
-            this.participants_btn.MouseHover += new System.EventHandler(this.participants_btn_MouseHover);
             // 
             // label5
             // 
@@ -312,7 +302,7 @@ namespace ChatApplication
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(1207, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(160, 25);
+            this.label5.Size = new System.Drawing.Size(130, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "View Participants";
             this.label5.Visible = false;
@@ -328,19 +318,18 @@ namespace ChatApplication
             this.customDropdownMenu1.MenuItemTextColor = System.Drawing.Color.Empty;
             this.customDropdownMenu1.Name = "customDropdownMenu1";
             this.customDropdownMenu1.PrimaryColor = System.Drawing.Color.Empty;
-            this.customDropdownMenu1.Size = new System.Drawing.Size(241, 101);
+            this.customDropdownMenu1.Size = new System.Drawing.Size(185, 52);
             // 
             // viewInfoToolStripMenuItem
             // 
             this.viewInfoToolStripMenuItem.Name = "viewInfoToolStripMenuItem";
-            this.viewInfoToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
+            this.viewInfoToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
             this.viewInfoToolStripMenuItem.Text = "View Info";
-            this.viewInfoToolStripMenuItem.Click += new System.EventHandler(this.viewInfoToolStripMenuItem_Click);
             // 
             // deleteMessageToolStripMenuItem
             // 
             this.deleteMessageToolStripMenuItem.Name = "deleteMessageToolStripMenuItem";
-            this.deleteMessageToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
+            this.deleteMessageToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
             this.deleteMessageToolStripMenuItem.Text = "Delete Message";
             // 
             // ViewChatRooms
@@ -357,14 +346,12 @@ namespace ChatApplication
             this.Controls.Add(this.message_box);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewChatRooms";
             this.Text = "ViewChatRooms";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewChatRooms_FormClosing);
             this.Load += new System.EventHandler(this.ViewChatRooms_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-
             this.customDropdownMenu1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
