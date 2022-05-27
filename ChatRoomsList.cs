@@ -34,13 +34,14 @@ namespace ChatApplication
             count = 0;
         }
 
-        
+
         public int Length()
         {
             return count;
         }
 
-        
+
+
         public void Append(ChatRoom val)
         {
             Node newNode = new Node(val);
@@ -54,7 +55,7 @@ namespace ChatApplication
             count++;
         }
 
-        
+
         public ChatRoom At(int pos)
         {
             Debug.Assert(pos >= 0 && pos < count);
@@ -105,33 +106,13 @@ namespace ChatApplication
             count--;
         }
 
-        public int findPrivateChatroom(long userId)
-        {
-            ChatRoomInfo tempinfo;
-            for (int i = 0; i < Length(); i++)
-            {
-                tempinfo = At(i).chatRoomInfo;
-                if (tempinfo.listOfUsers.Count == 2)
-                {
-                    foreach (User user in tempinfo.listOfUsers)
-                    {
-                        if (user.getUserId() == userId)
-                        {
-                            return i;
-                        }
-                    }
-                }
-            }
-
-            return -1;
-        }
         public void moveToTop(long chatRoomId)
         {
             Node tmp = head;
             ChatRoom x = null;
-            for(int i =0; i<count; i++)
+            for (int i = 0; i < count; i++)
             {
-                if(chatRoomId == tmp.value.chatRoomId)
+                if (chatRoomId == tmp.value.chatRoomId)
                 {
                     x = tmp.value;
                     DeleteAt(i);
@@ -142,11 +123,32 @@ namespace ChatApplication
             }
             InsertAt(0, x);
         }
+        public int findPrivateChatroom(long userId)
+        {
+            ChatRoomInfo tempinfo;
+            for (int i = 0; i < Length(); i++)
+            {
+                tempinfo = At(i).ChatRoomInfo;
+                if (tempinfo.ListUsers.Count == 2)
+                {
+                    foreach (User user in tempinfo.ListUsers)
+                    {
+                        if (user.UserId == userId)
+                        {
+                            return i;
+                        }
+                    }
+                }
+            }
 
+            return -1;
+        }
 
     }
-   
+
 }
+   
+
 
    
 

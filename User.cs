@@ -3,86 +3,109 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Drawing;
 namespace ChatApplication
 {
 	public class User
 	{
-		private static long counter = 0;
-		private long userId { get; set; }
-		private string mobileNumber { get; set; }
-		private string password { get; set; }
-		private string firstName { get; set; }
-		private string lastName { get; set; }
-
-		private StoriesQueue<Story> userStories;
-		private UserProfileDescription userDescription;
-		private Dictionary<string, User> contacts; //pointer to user or userId
-		private ChatRoomsList chatRoomsList;
-
-		public User(string mobileNumber, string password, string firstName, string lastName, Image ProfilePicture, string aboutDescription, bool isVisible)
-		{
-			counter++;
-			userId = counter;
-			this.mobileNumber = mobileNumber;
-			this.password = password;
-			this.firstName = firstName;
-			this.lastName = lastName;
-
-			userDescription = new UserProfileDescription(this.userId, ProfilePicture, aboutDescription, isVisible);
-		}
-
-		public User(long userId, string mobileNumber, string password, string firstName, string lastName, Image ProfilePicture, string aboutDescription, bool isVisible)
-		{
-			this.userId = userId;
-			this.mobileNumber = mobileNumber;
-			this.password = password;
-			this.firstName = firstName;
-			this.lastName = lastName;
-
-			userDescription = new UserProfileDescription(this.userId,ProfilePicture, aboutDescription, isVisible);
-		}
-		public void setChatRoomList(ChatRoomsList chatRoomsList)
+        private static long counter = 0;
+        private long userId;
+        public long UserId
         {
-			this.chatRoomsList = chatRoomsList;
+            get { return userId; }
+            set { userId = value; }
         }
-		public ChatRoomsList getChatRoomsList()
-		{
-			return chatRoomsList;
-		}
-		public long getUserId()
-		{
-			return userId;
-		}
-		public string getMobileNumber()
-		{
-			return mobileNumber;
-		}
-		public string getPassword()
-		{
-			return password;
-		}
-		public string getFirstName()
-		{
-			return firstName;
-		}
-		public string getLastName()
-		{
-			return lastName;
-		}
-		public StoriesQueue<Story> getStoriesQueue()
-		{
-			return userStories;
-		}
-		public UserProfileDescription GetUserProfileDescription()
-		{
-			return userDescription;
-		}
-		public Dictionary<string, User> getContactsList()
-		{
-			return contacts;
-		} 
-		
-	}
+        private String mobileNumber;
+
+        public String MobileNumber
+        {
+            get { return mobileNumber; }
+            set { mobileNumber = value; }
+        }
+
+        private String password;
+
+        public String Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
+        private String firstName;
+
+        public String FirstName
+        {
+            get { return firstName; }
+            set { firstName = value; }
+        }
+        private String lastName;
+
+        public String LastName
+        {
+            get { return lastName; }
+            set { lastName = value; }
+        }
+        private StoriesQueue<Story> userStories;
+        public StoriesQueue<Story> UserStories
+        {
+            get { return userStories; }
+            set { userStories = value; }
+        }
+        private UserProfileDescription userDescription;
+        public UserProfileDescription UserDescription
+        {
+            get { return userDescription; }
+            set { userDescription = value; }
+        }
+        private Dictionary<string, User> contacts; //pointer to user or userId
+        public Dictionary<string, User> Contacts
+        {
+            get { return contacts; }
+            set { contacts = value; }
+        }
+        private ChatRoomsList chatRoomsList;
+        public ChatRoomsList ChatRoomsList
+        {
+            get { return chatRoomsList; }
+            set { chatRoomsList = value; }
+        }
+
+        public User(string mobileNumber, string password, string firstName, string lastName, Image ProfilePicture, string aboutDescription, bool isVisible)
+        {
+            counter++;
+            userId = counter;
+            this.mobileNumber = mobileNumber;
+            this.password = password;
+            this.firstName = firstName;
+            this.lastName = lastName;
+
+            userDescription = new UserProfileDescription(this.userId, ProfilePicture, aboutDescription, isVisible);
+        }
+
+        public User(long userId, string mobileNumber, string password, string firstName, string lastName, Image ProfilePicture, string aboutDescription, bool isVisible)
+        {
+            this.userId = userId;
+            this.mobileNumber = mobileNumber;
+            this.password = password;
+            this.firstName = firstName;
+            this.lastName = lastName;
+
+            userDescription = new UserProfileDescription(this.userId, ProfilePicture, aboutDescription, isVisible);
+        }
+        public User(long userId, string mobileNumber, string password, string firstName, string lastName, string aboutDescription, bool isVisible)
+        {
+            this.userId = userId;
+            this.mobileNumber = mobileNumber;
+            this.password = password;
+            this.firstName = firstName;
+            this.lastName = lastName;
+
+            userDescription = new UserProfileDescription(this.userId, ProfImage.userprofilepicturedefault, aboutDescription, isVisible);
+        }
+
+        public void setChatRoomList(ChatRoom chatroom)
+        {
+            chatRoomsList.Append(chatroom);
+        }
+
+    }
 }

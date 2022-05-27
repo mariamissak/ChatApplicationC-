@@ -45,11 +45,20 @@ namespace ChatApplication
 
             if (dr.Read())
             {
-                byte[] img = (byte[])dr[7];
-                MessageBox.Show("Logged In!");
-                MemoryStream ms = new MemoryStream(img);
+                Image prof;
+                try
+                {
+                    byte[] img = (byte[])dr[7];
+                    MessageBox.Show("Logged In!");
+                    MemoryStream ms = new MemoryStream(img);
 
-                Image prof = Image.FromStream(ms);
+                   prof = Image.FromStream(ms);
+                }
+                catch (InvalidCastException)
+                {
+                    prof = ProfImage.userprofilepicturedefault;
+                }
+              
                 MainForm.mainUser = new User(Convert.ToInt64(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), prof , dr[5].ToString(), Convert.ToBoolean(dr[6]));
             }
             else
@@ -58,6 +67,16 @@ namespace ChatApplication
             }
             dr.Close();
             con.Dispose();
+            ViewChatRooms vc = new ViewChatRooms();
+            vc.Show();
+            this.Hide();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            MainForm main_form = new MainForm();
+            main_form.Show();
+            this.Hide();
         }
     }
 }
