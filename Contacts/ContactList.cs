@@ -32,7 +32,7 @@ namespace ChatApplication.Contacts
             myDict.Add("4", user4);
             myDict.Add("5", user);
             myDict.Add("6", user);*/
-            myDict = MainForm.mainUser.getContactsList();
+            myDict = MainForm.mainUser.Contacts;
             populateList(myDict);
 
             populateContactInfo(selectedUser);
@@ -65,15 +65,28 @@ namespace ChatApplication.Contacts
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            ViewChatRooms cForm = new ViewChatRooms();
-            cForm.Show();
-            this.Hide();
+            //ViewChatRooms cForm = new ViewChatRooms();
+            //cForm.Show();
+            //this.Hide();
         }
 
         private void addContactButton_Click(object sender, EventArgs e)
         {
+            //AddNewContactForm ancf = new AddNewContactForm();
+            //ancf.Show();
+        }
+
+        private void add_contact_btn_Click(object sender, EventArgs e)
+        {
             AddNewContactForm ancf = new AddNewContactForm();
             ancf.Show();
+        }
+
+        private void chatrooms_btn_Click(object sender, EventArgs e)
+        {
+            ViewChatRooms cForm = new ViewChatRooms();
+            cForm.Show();
+            this.Hide();
         }
     }
 }

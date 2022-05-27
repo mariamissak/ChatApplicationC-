@@ -45,10 +45,9 @@ namespace ChatApplication.Contacts
             this.profilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.profilePicture.BorderSize = 2;
             this.profilePicture.GradientAngle = 50F;
-            this.profilePicture.Location = new System.Drawing.Point(2, 2);
-            this.profilePicture.Margin = new System.Windows.Forms.Padding(2);
+            this.profilePicture.Location = new System.Drawing.Point(3, 10);
             this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(114, 114);
+            this.profilePicture.Size = new System.Drawing.Size(163, 163);
             this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePicture.TabIndex = 1;
             this.profilePicture.TabStop = false;
@@ -57,10 +56,11 @@ namespace ChatApplication.Contacts
             // contactName
             // 
             this.contactName.BackColor = System.Drawing.Color.Transparent;
-            this.contactName.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.contactName.Location = new System.Drawing.Point(121, 35);
+            this.contactName.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.contactName.Location = new System.Drawing.Point(173, 58);
+            this.contactName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.contactName.Name = "contactName";
-            this.contactName.Size = new System.Drawing.Size(81, 23);
+            this.contactName.Size = new System.Drawing.Size(116, 38);
             this.contactName.TabIndex = 2;
             this.contactName.Text = "label1";
             this.contactName.Click += new System.EventHandler(this.contactName_Click);
@@ -68,33 +68,38 @@ namespace ChatApplication.Contacts
             // lastSeen
             // 
             this.lastSeen.BackColor = System.Drawing.Color.Transparent;
-            this.lastSeen.Location = new System.Drawing.Point(121, 72);
+            this.lastSeen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lastSeen.Location = new System.Drawing.Point(173, 120);
+            this.lastSeen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastSeen.Name = "lastSeen";
-            this.lastSeen.Size = new System.Drawing.Size(156, 18);
+            this.lastSeen.Size = new System.Drawing.Size(223, 30);
             this.lastSeen.TabIndex = 3;
             this.lastSeen.Text = "label2";
+            this.lastSeen.Click += new System.EventHandler(this.lastSeen_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(0, 2);
+            this.button1.Location = new System.Drawing.Point(0, 3);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(300, 115);
+            this.button1.Size = new System.Drawing.Size(429, 192);
             this.button1.TabIndex = 4;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ContactItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.contactName);
             this.Controls.Add(this.lastSeen);
             this.Controls.Add(this.profilePicture);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ContactItem";
-            this.Size = new System.Drawing.Size(300, 118);
+            this.Size = new System.Drawing.Size(429, 197);
             this.Load += new System.EventHandler(this.ContactItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);

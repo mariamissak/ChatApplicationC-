@@ -43,14 +43,14 @@ namespace ChatApplication.Contacts
                 //need to grab user found info 
                 User contactUserFound = new User(Convert.ToInt64(dr[0]),dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),dr[4].ToString(),Image.FromStream(memoryStream),dr[5].ToString(),Convert.ToBoolean(dr[6]));// = user found
                 KeyValuePair<string, User> contact = new KeyValuePair<string, User>(phoneNumber_txt.textBox1.Text, contactUserFound);
-                MainForm.mainUser.getContactsList().Append(contact);
+                MainForm.mainUser.Contacts.Append(contact);
                 //db set main user  new contact list
                 // MessageBox.Show("Contact Added Successfully.");
                 //update DB
 
                 cmd.CommandText = "insert into contacts values(@id,@phone);";
-                cmd.Parameters.AddWithValue("@id", MainForm.mainUser.getUserId());
-                cmd.Parameters.AddWithValue("@phone", contactUserFound.getMobileNumber());
+                cmd.Parameters.AddWithValue("@id", MainForm.mainUser.UserId);
+                cmd.Parameters.AddWithValue("@phone", contactUserFound.MobileNumber);
 
                 int r = cmd.ExecuteNonQuery();
                 if (r != -1)
@@ -73,6 +73,7 @@ namespace ChatApplication.Contacts
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
         
     }

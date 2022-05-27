@@ -217,19 +217,24 @@ namespace ChatApplication
             //                      hello";
             // string message_text =message_box.textBox1.Text;
             string message_text = "Me: " + message_box.textBox1.Text;
-           
             messagesList.View = View.Details;
             Message message = new Message(MainForm.mainUser.UserId, message_text, cur.chatRoomId);
+            cur.MessageStack.Push(message);
             //messagesList.BeginUpdate();
             messagesList.Items.Add(message_text);
             messagesList.Items.Add(DateTime.Now.ToString());
-            messagesList.Items.Add("--------------------------------------");
-            //messagesList.EndUpdate();
-            //this.Controls.Add(this.messagesList);
-            // messagesList.Items.Add(message.MessageStatus.DateTime.ToString());
-            //MessageBox.Show("Button clicked");
-            messagesList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+            if (message.MessageStatus.IsSeen)
+            {
+                messagesList.Items.Add("Seen");
 
+            }
+            else
+            {
+                messagesList.Items.Add("Delivered");
+            }
+            messagesList.Items.Add("--------------------------------------");
+            
+            messagesList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
             con = new MySqlConnection(c);
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
@@ -266,6 +271,54 @@ namespace ChatApplication
         private void ViewChatRooms_FormClosing(object sender, FormClosingEventArgs e)
         {
             con.Dispose();
+        }
+
+        private void iconButton1_MouseHover(object sender, EventArgs e)
+        {
+            label2.Show();
+
+        }
+
+        private void logout_btn_MouseHover(object sender, EventArgs e)
+        {
+            label3.Show();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void user_prof_btn_MouseHover(object sender, EventArgs e)
+        {
+            label4.Show();
+        }
+
+        private void iconButton2_MouseHover(object sender, EventArgs e)
+        {
+            label6.Show();
+        }
+
+        private void iconButton3_MouseHover(object sender, EventArgs e)
+        {
+            label7.Show();
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            Contacts.ContactList cl = new Contacts.ContactList();
+            cl.Show();
+            this.Hide();
+        }
+
+        private void participants_btn_MouseHover(object sender, EventArgs e)
+        {
+            label5.Show();
+        }
+
+        private void viewInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageDetails md = new MessageDetails(cur,);
         }
     }
     }

@@ -22,6 +22,9 @@
     <Compile Update="CreateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CustomDropDownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="ListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -30,6 +33,12 @@
     </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MessageDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MessageItem.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="ProfileDescriptionForm.cs">
       <SubType>Form</SubType>

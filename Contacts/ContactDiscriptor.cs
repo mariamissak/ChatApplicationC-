@@ -73,17 +73,17 @@ namespace ChatApplication.Contacts
 
         private void ContactDiscriptor_Load(object sender, EventArgs e)
         {
-            _fullName = _contact.getFirstName() + " " + _contact.getLastName();
+            _fullName = _contact.FirstName + " " + _contact.LastName;
             contactName.Text = _fullName;
-            _img = _contact.GetUserProfileDescription().getProfilePicture() ;
+            _img = _contact.UserDescription.ProfilePicture ;
             //requestImageFromUrl(_img);
 
-            _phoneNumber = _contact.getMobileNumber();
-            _description = _contact.GetUserProfileDescription().getAboutDescription();
+            _phoneNumber = _contact.MobileNumber;
+            _description = _contact.UserDescription.AboutDescription;
             bio.Text = _description;
             mobileNumber.Text = _phoneNumber;
             profilePicture.BackgroundImage = _img;
-            if (_contact.getStoriesQueue().empty())
+            if (_contact.UserStories.empty())
             {
                 storyViewButton.Visible = false;
             }
@@ -111,7 +111,7 @@ namespace ChatApplication.Contacts
 
         private void chatButton_Click(object sender, EventArgs e)
         {
-            int chatroomIndex = MainForm.mainUser.getChatRoomsList().findPrivateChatroom(_contact.getUserId());
+            int chatroomIndex = MainForm.mainUser.ChatRoomsList.findPrivateChatroom(_contact.UserId);
             ChatRoom newChatRoom;
             if ( chatroomIndex == -1) 
             {
@@ -119,8 +119,8 @@ namespace ChatApplication.Contacts
                 users.Insert(0,MainForm.mainUser);
                 users.Insert(1, _contact);
 
-                newChatRoom = new ChatRoom("private", users);
-                MainForm.mainUser.getChatRoomsList().InsertAt(0,newChatRoom);
+                newChatRoom = new ChatRoom(true, users);
+                MainForm.mainUser.ChatRoomsList.InsertAt(0,newChatRoom);
                 chatroomIndex = 0;
 
                 //opening sql connection
@@ -137,7 +137,7 @@ namespace ChatApplication.Contacts
                 cmd.CommandText = "insert into chatrooms values(@chatroomId,@private,@lastDate);";
                 cmd.Parameters.AddWithValue("@chatroomId", newChatRoom.chatRoomId);
                 cmd.Parameters.AddWithValue("@private", 1);
-                cmd.Parameters.AddWithValue("@lastDate", newChatRoom.getLastDate().ToString());
+                cmd.Parameters.AddWithValue("@lastDate", newChatRoom.LastDate.ToString());
                 
 
                 int r = cmd.ExecuteNonQuery();
@@ -148,14 +148,14 @@ namespace ChatApplication.Contacts
 
                 cmd.CommandText = "insert into chatroomusers values(@chatroomId,@userId,@lastSeen);";
                 cmd.Parameters.AddWithValue("@chatroomId", newChatRoom.chatRoomId);
-                cmd.Parameters.AddWithValue("@userId", MainForm.mainUser.getUserId());
+                cmd.Parameters.AddWithValue("@userId", MainForm.mainUser.UserId);
                 cmd.Parameters.AddWithValue("@lastSeen", DateTime.Now.ToString());
 
                 cmd.ExecuteNonQuery();
                 
                 cmd.CommandText = "insert into chatroomusers values(@chatroomId,@userId,@lastSeen);";
                 cmd.Parameters.AddWithValue("@chatroomId", newChatRoom.chatRoomId);
-                cmd.Parameters.AddWithValue("@userId", _contact.getUserId());
+                cmd.Parameters.AddWithValue("@userId", _contact.UserId);
                 cmd.Parameters.AddWithValue("@lastSeen", DateTime.Now.ToString());
 
                 cmd.ExecuteNonQuery();
@@ -163,7 +163,7 @@ namespace ChatApplication.Contacts
                 con.Dispose();
 
             } else {
-                newChatRoom = MainForm.mainUser.getChatRoomsList().At(chatroomIndex);
+                newChatRoom = MainForm.mainUser.ChatRoomsList.At(chatroomIndex);
             }
 
             

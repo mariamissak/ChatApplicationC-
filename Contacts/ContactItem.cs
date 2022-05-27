@@ -132,15 +132,20 @@ namespace ChatApplication.Contacts
 
         private void ContactItem_Load(object sender, EventArgs e)
         {
-            contactName.Text = _contact.getFirstName();
+            contactName.Text = _contact.FirstName;
             lastSeen.Text = "last seen yesterday";
-            Img = _contact.GetUserProfileDescription().getProfilePicture();
+            Img = _contact.UserDescription.ProfilePicture;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             ContactList pForm = (ContactList)ParentForm;
             pForm.populateContactInfo(_contact);
+        }
+
+        private void lastSeen_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

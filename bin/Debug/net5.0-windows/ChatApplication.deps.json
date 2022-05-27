@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "ChatApplication/1.0.0": {
         "dependencies": {
+          "FontAwesome.Sharp": "5.15.4",
           "MySql.Data": "8.0.29"
         },
         "runtime": {
@@ -19,6 +20,14 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.8.5.0",
             "fileVersion": "1.8.19031.1"
+          }
+        }
+      },
+      "FontAwesome.Sharp/5.15.4": {
+        "runtime": {
+          "lib/net5.0-windows7.0/FontAwesome.Sharp.dll": {
+            "assemblyVersion": "5.15.4.0",
+            "fileVersion": "5.15.4.0"
           }
         }
       },
@@ -148,6 +157,13 @@
       "sha512": "sha512-6uxsQw2UXrt82VQAWC2td3oBSJjUZ3P4u4DliagB8wf67KsU53V8sW9xwdF+IwZOOZFR0TCZuv/YKZ2BlrfAag==",
       "path": "bouncycastle.netcore/1.8.5",
       "hashPath": "bouncycastle.netcore.1.8.5.nupkg.sha512"
+    },
+    "FontAwesome.Sharp/5.15.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IqJe1IQas6tSVXMNHTWA/NJeP7azyxDTk6DCB+NMXOOED2F07IYI9nvfB1HP83r4yh5cntZoTdwSpIraA5XoXw==",
+      "path": "fontawesome.sharp/5.15.4",
+      "hashPath": "fontawesome.sharp.5.15.4.nupkg.sha512"
     },
     "Google.Protobuf/3.19.4": {
       "type": "package",

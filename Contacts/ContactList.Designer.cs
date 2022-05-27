@@ -33,8 +33,10 @@ namespace ChatApplication.Contacts
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.backButton = new ChatApplication.RoundedButton();
-            this.addContactButton = new ChatApplication.RoundedButton();
+            this.add_contact_btn = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chatrooms_btn = new FontAwesome.Sharp.IconButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -42,92 +44,107 @@ namespace ChatApplication.Contacts
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 70);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 117);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 429);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(466, 715);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.flowLayoutPanel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(370, 0);
+            this.panel1.Location = new System.Drawing.Point(529, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(624, 526);
+            this.panel1.Size = new System.Drawing.Size(891, 877);
             this.panel1.TabIndex = 1;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(42, 70);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(60, 117);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(554, 429);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(791, 715);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.addContactButton);
-            this.panel2.Controls.Add(this.backButton);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.chatrooms_btn);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.add_contact_btn);
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(364, 526);
+            this.panel2.Size = new System.Drawing.Size(520, 877);
             this.panel2.TabIndex = 2;
             // 
-            // backButton
+            // add_contact_btn
             // 
-            this.backButton.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.backButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.backButton.BorderRadius = 20;
-            this.backButton.BorderSize = 0;
-            this.backButton.FlatAppearance.BorderSize = 0;
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.Location = new System.Drawing.Point(13, 11);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(85, 42);
-            this.backButton.TabIndex = 7;
-            this.backButton.Text = "<- back to chatrooms";
-            this.backButton.TextColor = System.Drawing.Color.White;
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.add_contact_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add_contact_btn.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.add_contact_btn.IconColor = System.Drawing.Color.MediumVioletRed;
+            this.add_contact_btn.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.add_contact_btn.IconSize = 60;
+            this.add_contact_btn.Location = new System.Drawing.Point(385, 47);
+            this.add_contact_btn.Name = "add_contact_btn";
+            this.add_contact_btn.Size = new System.Drawing.Size(100, 73);
+            this.add_contact_btn.TabIndex = 9;
+            this.add_contact_btn.UseVisualStyleBackColor = true;
+            this.add_contact_btn.Click += new System.EventHandler(this.add_contact_btn_Click);
             // 
-            // addContactButton
+            // label1
             // 
-            this.addContactButton.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.addContactButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.addContactButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.addContactButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.addContactButton.BorderRadius = 20;
-            this.addContactButton.BorderSize = 0;
-            this.addContactButton.FlatAppearance.BorderSize = 0;
-            this.addContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addContactButton.ForeColor = System.Drawing.Color.White;
-            this.addContactButton.Location = new System.Drawing.Point(118, 11);
-            this.addContactButton.Margin = new System.Windows.Forms.Padding(2);
-            this.addContactButton.Name = "addContactButton";
-            this.addContactButton.Size = new System.Drawing.Size(194, 42);
-            this.addContactButton.TabIndex = 8;
-            this.addContactButton.Text = "Add Contact using phone number";
-            this.addContactButton.TextColor = System.Drawing.Color.White;
-            this.addContactButton.UseVisualStyleBackColor = false;
-            this.addContactButton.Click += new System.EventHandler(this.addContactButton_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(381, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 25);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Add Contact";
+            // 
+            // chatrooms_btn
+            // 
+            this.chatrooms_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chatrooms_btn.IconChar = FontAwesome.Sharp.IconChar.Comments;
+            this.chatrooms_btn.IconColor = System.Drawing.Color.MediumVioletRed;
+            this.chatrooms_btn.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.chatrooms_btn.IconSize = 60;
+            this.chatrooms_btn.Location = new System.Drawing.Point(291, 47);
+            this.chatrooms_btn.Name = "chatrooms_btn";
+            this.chatrooms_btn.Size = new System.Drawing.Size(93, 73);
+            this.chatrooms_btn.TabIndex = 11;
+            this.chatrooms_btn.UseVisualStyleBackColor = true;
+            this.chatrooms_btn.Click += new System.EventHandler(this.chatrooms_btn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(280, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 25);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Chatrooms";
             // 
             // ContactList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 526);
+            this.BackColor = System.Drawing.Color.Lavender;
+            this.ClientSize = new System.Drawing.Size(1420, 877);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ContactList";
             this.Text = "ContactList";
             this.Load += new System.EventHandler(this.ContactList_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -138,7 +155,9 @@ namespace ChatApplication.Contacts
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private RoundedButton backButton;
-        private RoundedButton addContactButton;
+        private FontAwesome.Sharp.IconButton add_contact_btn;
+        private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton chatrooms_btn;
+        private System.Windows.Forms.Label label2;
     }
 }
