@@ -7,13 +7,14 @@ using System.Text;
 using System.Windows.Forms;
 using ChatApplication;
 
-
 namespace ChatApplication
 {
     public partial class MainForm : Form
     {
 
+
         public static User mainUser;
+        public static String dbConnStr = "server=sql11.freesqldatabase.com;database=sql11495725;uid=sql11495725;pwd=iDswq8DKc8;";
         public MainForm()
         {
             InitializeComponent();

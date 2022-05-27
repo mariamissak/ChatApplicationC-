@@ -15,8 +15,6 @@ namespace ChatApplication
     {
         MySqlConnection con;
 
-        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
-
         public static string crmobileNumber;
         public static string crpassword;
         public static string crfirstName;
@@ -42,7 +40,7 @@ namespace ChatApplication
         private void next_btn_Click(object sender, EventArgs e)
         {
 
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;

@@ -14,9 +14,7 @@ namespace ChatApplication
     public partial class ListItem : UserControl
     {
         MySqlConnection con;
-
-        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
-
+ 
         public ListItem()
         {
             InitializeComponent();
@@ -66,7 +64,7 @@ namespace ChatApplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
 
             MySqlCommand cmd = new MySqlCommand();

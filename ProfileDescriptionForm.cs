@@ -17,10 +17,10 @@ namespace ChatApplication
     {
         MySqlConnection con;
 
-        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
-         Image ProfilePicture;
-         String AboutDescription;
-         Boolean IsVisible;
+        string c = MainForm.dbConnStr;
+        Image ProfilePicture;
+        String AboutDescription;
+        Boolean IsVisible;
         public ProfileDescriptionForm()
         {
             InitializeComponent();
@@ -54,7 +54,7 @@ namespace ChatApplication
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "insert into Users values(@id,@phone,@pass,@fname,@lname, @AboutDescription, @IsVisible,@ProfilePicture);";
+            cmd.CommandText = "insert into users values(@id,@phone,@pass,@fname,@lname, @AboutDescription, @IsVisible,@ProfilePicture);";
             cmd.Parameters.AddWithValue("@id", MainForm.mainUser.UserId);
             cmd.Parameters.AddWithValue("@phone", MainForm.mainUser.MobileNumber);
             cmd.Parameters.AddWithValue("@pass", MainForm.mainUser.Password);
@@ -64,6 +64,10 @@ namespace ChatApplication
             cmd.Parameters.AddWithValue("@isVisible", MainForm.mainUser.UserDescription.IsVisible);
             cmd.Parameters.AddWithValue("@ProfilePicture", MainForm.mainUser.UserDescription.ProfilePicture);
 
+            ViewChatRooms vcr = new ViewChatRooms();
+            
+            
+
             int r =cmd.ExecuteNonQuery();
             if (r != -1)
             {
@@ -71,11 +75,18 @@ namespace ChatApplication
                 MessageBox.Show("Account added successfully");
             }
             con.Dispose();
+
+            vcr.Show();
+            this.Close();
         }
 
         private void profilePicture_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void profilePicture_btn_Click(object sender, EventArgs e)
+        {
         }
     }
 }

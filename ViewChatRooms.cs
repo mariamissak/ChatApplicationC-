@@ -18,7 +18,7 @@ namespace ChatApplication
         private ChatRoom cur;
         MySqlConnection con;
 
-        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
+        string c = MainForm.dbConnStr;
         public ViewChatRooms()
         {
             InitializeComponent();
@@ -85,14 +85,13 @@ namespace ChatApplication
                     
                     allUsersInChatRoom.Close();
                     
-                    
                     ChatRoom ch = new ChatRoom(Convert.ToInt64(detailsOfChatRoom[0].ToString()), Convert.ToBoolean(detailsOfChatRoom[1]), listOfUsers);
-                    MainForm.mainUser.setChatRoomList(ch);
+                    MainForm.mainUser.ChatRoomsList.Append(ch);
                 }
                 detailsOfChatRoom.Close();
                 
             }
-            chatroomsOfMainUser.Close();
+            chatroomsOfMainUser.Close();    
             populateList();
 
             MySqlCommand cmd5 = new MySqlCommand();
@@ -266,6 +265,11 @@ namespace ChatApplication
         private void ViewChatRooms_FormClosing(object sender, FormClosingEventArgs e)
         {
             con.Dispose();
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
     }

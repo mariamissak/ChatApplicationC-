@@ -15,10 +15,7 @@ namespace ChatApplication
     public partial class LogIn : Form
     {
         MySqlConnection con; 
-
-       string c = "server=localhost;database=sakila;uid=root;pwd=root;";
-
-
+ 
         public LogIn()
         {
             InitializeComponent();
@@ -31,7 +28,7 @@ namespace ChatApplication
 
         private void logIn_btn_Click(object sender, EventArgs e)
         {
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;

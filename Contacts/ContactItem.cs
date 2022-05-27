@@ -58,66 +58,6 @@ namespace ChatApplication.Contacts
             }
         }
 
-        /*Image cropToCircle(Bitmap src)
-        {
-            PointF imgCenter = new PointF(profilePicture.Location.X, profilePicture.Location.Y);
-            float radius = profilePicture.Width / 2;
-            Image img = new Bitmap(profilePicture.Image.Width, profilePicture.Image.Height, src.PixelFormat);
-            using (Graphics g = Graphics.FromImage(img)) {
-                Color clipingFrame = Color.FromArgb(0, 0, 0, 0);
-                RectangleF r = new RectangleF(imgCenter.X - radius, imgCenter.Y - radius,
-                                                radius * 2, radius * 2);
-
-                // enables smoothing of the edge of the circle (less pixelated)
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-
-                // fills background color
-                using (Brush br = new SolidBrush(clipingFrame))
-                {
-                    g.FillRectangle(br, 0, 0, img.Width, img.Height);
-                }
-
-                // adds the new ellipse & draws the image again 
-                GraphicsPath path = new GraphicsPath();
-                path.AddEllipse(r);
-                g.SetClip(path);
-                g.DrawImage(src,0, 0);
-                return img;
-            }
-        }*/
-
-        /*void requestImageFromUrl( string value)
-        {
-            Stream tempStream = null;
-            HttpWebResponse imgResponse = null;
-            try
-            {
-                HttpWebRequest imgRequest = (HttpWebRequest)HttpWebRequest.Create(value);
-                imgRequest.AllowWriteStreamBuffering = true;
-                imgResponse = (HttpWebResponse)imgRequest.GetResponse();
-                tempStream = imgResponse.GetResponseStream();
-                Bitmap avatarBitMap;
-
-                //set Background image
-                if (tempStream != null)
-                {
-                    avatarBitMap = new Bitmap(tempStream);
-                    avatarBitMap = new Bitmap(avatarBitMap, profilePicture.Width, profilePicture.Height);
-                    
-                    profilePicture.BackgroundImage = avatarBitMap;
-                }
-            }
-            catch { }
-            finally
-            {
-                if (tempStream != null)
-                    tempStream.Close();
-                if (imgResponse != null)
-                {
-                    imgResponse.Close();
-                }
-            }
-        }*/
         #endregion
 
         private void contactName_Click(object sender, EventArgs e)
@@ -132,9 +72,9 @@ namespace ChatApplication.Contacts
 
         private void ContactItem_Load(object sender, EventArgs e)
         {
-            contactName.Text = _contact.getFirstName();
+            contactName.Text = _contact.FirstName;
             lastSeen.Text = "last seen yesterday";
-            Img = _contact.GetUserProfileDescription().getProfilePicture();
+            Img = _contact.UserDescription.ProfilePicture;
         }
 
         private void button1_Click(object sender, EventArgs e)

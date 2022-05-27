@@ -32,7 +32,8 @@ C:\Users\farah\source\repos\ChatApplication\obj\Debug\net5.0-windows\ChatApplica
 C:\Users\farah\source\repos\ChatApplication\obj\Debug\net5.0-windows\ChatApplication.csproj.AssemblyReference.cache
 C:\Users\farah\source\repos\ChatApplication\obj\Debug\net5.0-windows\ChatApplication.ListItem.resources
 C:\Users\farah\source\repos\ChatApplication\obj\Debug\net5.0-windows\ChatApplication.ProfImage.resources
-D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.csproj.AssemblyReference.cache
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.ChatRoomUsers.resources
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.AddNewContactForm.resources
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.ContactDiscriptor.resources
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.ContactItem.resources
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.ContactList.resources
@@ -44,14 +45,13 @@ D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-w
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.ProfImage.resources
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.TextBoxG.resources
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.ViewChatRooms.resources
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.ViewProfile.resources
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.csproj.GenerateResource.cache
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.GeneratedMSBuildEditorConfig.editorconfig
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.AssemblyInfoInputs.cache
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.AssemblyInfo.cs
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.csproj.CoreCompileInputs.cache
-D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.dll
-D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ref\ChatApplication.dll
-D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.pdb
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.csproj.AssemblyReference.cache
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ChatApplication.exe
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ChatApplication.deps.json
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ChatApplication.runtimeconfig.json
@@ -60,6 +60,7 @@ D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-w
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ref\ChatApplication.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ChatApplication.pdb
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\BouncyCastle.Crypto.dll
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\FontAwesome.Sharp.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\Google.Protobuf.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\K4os.Compression.LZ4.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\K4os.Compression.LZ4.Streams.dll
@@ -68,5 +69,7 @@ D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-w
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\Ubiety.Dns.Core.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\bin\Debug\net5.0-windows\ZstdNet.dll
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.csproj.CopyComplete
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.dll
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ref\ChatApplication.dll
+D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.pdb
 D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.genruntimeconfig.cache
-D:\uni work\Projects\DataStructure\chat app\ChatApplicationC-\obj\Debug\net5.0-windows\ChatApplication.Contacts.AddNewContactForm.resources

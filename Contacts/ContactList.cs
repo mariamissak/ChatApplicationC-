@@ -32,7 +32,7 @@ namespace ChatApplication.Contacts
             myDict.Add("4", user4);
             myDict.Add("5", user);
             myDict.Add("6", user);*/
-            myDict = MainForm.mainUser.getContactsList();
+            myDict = MainForm.mainUser.Contacts;
             populateList(myDict);
 
             populateContactInfo(selectedUser);

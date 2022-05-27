@@ -102,10 +102,5 @@ namespace ChatApplication
             userDescription = new UserProfileDescription(this.userId, ProfImage.userprofilepicturedefault, aboutDescription, isVisible);
         }
 
-        public void setChatRoomList(ChatRoom chatroom)
-        {
-            chatRoomsList.Append(chatroom);
-        }
-
     }
 }
