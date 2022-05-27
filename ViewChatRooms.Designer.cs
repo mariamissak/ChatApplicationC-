@@ -345,7 +345,7 @@ namespace ChatApplication
             // 
             // ViewChatRooms
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1370, 853);
@@ -357,12 +357,14 @@ namespace ChatApplication
             this.Controls.Add(this.message_box);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ViewChatRooms";
             this.Text = "ViewChatRooms";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewChatRooms_FormClosing);
             this.Load += new System.EventHandler(this.ViewChatRooms_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+
             this.customDropdownMenu1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

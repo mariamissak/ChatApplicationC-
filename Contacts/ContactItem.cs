@@ -53,7 +53,7 @@ namespace ChatApplication.Contacts
             get { return _img; }
             set {
                 _img = value;
-
+                profilePicture.Image = value;
                // requestImageFromUrl(value);
             }
         }

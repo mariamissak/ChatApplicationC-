@@ -22,6 +22,7 @@ namespace ChatApplication.Contacts
 
         MySqlConnection con;
 
+
         string c = "server=localhost;database=sakila;uid=root;pwd=root;";
 
         private void AddContactbutton_Click(object sender, EventArgs e)
@@ -76,5 +77,13 @@ namespace ChatApplication.Contacts
 
         }
         
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

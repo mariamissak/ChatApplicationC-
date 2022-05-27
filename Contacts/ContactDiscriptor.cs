@@ -73,17 +73,19 @@ namespace ChatApplication.Contacts
 
         private void ContactDiscriptor_Load(object sender, EventArgs e)
         {
+
             _fullName = _contact.FirstName + " " + _contact.LastName;
             contactName.Text = _fullName;
             _img = _contact.UserDescription.ProfilePicture ;
+
             //requestImageFromUrl(_img);
 
             _phoneNumber = _contact.MobileNumber;
             _description = _contact.UserDescription.AboutDescription;
             bio.Text = _description;
             mobileNumber.Text = _phoneNumber;
-            profilePicture.BackgroundImage = _img;
-            if (_contact.UserStories.empty())
+            profilePicture.Image = _img;
+            if (_contact.UserStories.Empty())
             {
                 storyViewButton.Visible = false;
             }

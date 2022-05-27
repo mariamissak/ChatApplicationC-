@@ -22,51 +22,60 @@ namespace ChatApplication
 			front = back = -1;
 			arr = new T[size];
 		}
-		public int length()
+		public int Length()
 		{
 			return count;
 		}
-		public void enqueue(T val)
+		public void Enqueue(T val)
 		{
-			Debug.Assert(!full());
+            if (Full())
+            {
+				Expand();
+            }
 			if (count == 0)
 				front = 0;
 			back = (back + 1) % size;
 			arr[back] = val;
 			count++;
 		}
-		public void dequeue()
+		public void Dequeue()
 		{
-			Debug.Assert(!empty());
+			Debug.Assert(!Empty());
 			if (count == 1)
 				front = back = -1;
 			else
 				front = (front + 1) % size;
 			count--;
 		}
+		public T Back()
+		{
+			Debug.Assert(!Empty());
+			return arr[back];
+		}
+
 		public T Front()
 		{
-			Debug.Assert(!empty());
+			Debug.Assert(!Empty());
 			return arr[front];
 		}
-		public bool full()
+		public bool Full()
 		{
 			return (count == size);
 		}
-		public bool empty()
+		public bool Empty()
 		{
 			return (count == 0);
 		}
 
-		public void viewAll()
-		{
-			for (int str = 0; str < count; str++)
-			{
-				//show story for 3 seconds
-			}
-		}
+		//public void viewAll()
+		//{
+		//	for (int str = 0; str < count; str++)
+		//	{
+		//		//show story for 3 seconds
+		//	}
+		//}
 
-		public void expand()
+		public void Expand()
 		{
 			T[] tmpArr = new T[size + 10];
 

@@ -55,9 +55,10 @@ namespace ChatApplication
             this.profilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.profilePicture.BorderSize = 2;
             this.profilePicture.GradientAngle = 50F;
-            this.profilePicture.Location = new System.Drawing.Point(42, 25);
+            this.profilePicture.Location = new System.Drawing.Point(34, 20);
+            this.profilePicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(227, 227);
+            this.profilePicture.Size = new System.Drawing.Size(182, 182);
             this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePicture.TabIndex = 0;
             this.profilePicture.TabStop = false;
@@ -74,13 +75,15 @@ namespace ChatApplication
             this.profilePicture_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.profilePicture_btn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.profilePicture_btn.ForeColor = System.Drawing.Color.White;
-            this.profilePicture_btn.Location = new System.Drawing.Point(62, 258);
+            this.profilePicture_btn.Location = new System.Drawing.Point(50, 206);
+            this.profilePicture_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.profilePicture_btn.Name = "profilePicture_btn";
-            this.profilePicture_btn.Size = new System.Drawing.Size(187, 60);
+            this.profilePicture_btn.Size = new System.Drawing.Size(150, 48);
             this.profilePicture_btn.TabIndex = 1;
             this.profilePicture_btn.Text = "Add Profile Picture";
             this.profilePicture_btn.TextColor = System.Drawing.Color.White;
             this.profilePicture_btn.UseVisualStyleBackColor = false;
+            this.profilePicture_btn.Click += new System.EventHandler(this.profilePicture_btn_Click);
             // 
             // about_txt
             // 
@@ -95,7 +98,7 @@ namespace ChatApplication
             this.about_txt.Margin = new System.Windows.Forms.Padding(4);
             this.about_txt.Multiline = true;
             this.about_txt.Name = "about_txt";
-            this.about_txt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.about_txt.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.about_txt.PasswordChar = false;
             this.about_txt.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.about_txt.PlaceholderText = "";
@@ -126,7 +129,7 @@ namespace ChatApplication
             this.isVisible_toggle.OffToggleColor = System.Drawing.Color.Gainsboro;
             this.isVisible_toggle.OnBackColor = System.Drawing.Color.MediumSlateBlue;
             this.isVisible_toggle.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.isVisible_toggle.Size = new System.Drawing.Size(60, 30);
+            this.isVisible_toggle.Size = new System.Drawing.Size(48, 24);
             this.isVisible_toggle.TabIndex = 4;
             this.isVisible_toggle.UseVisualStyleBackColor = true;
             // 
@@ -193,7 +196,7 @@ namespace ChatApplication
             this.createAccount_btn.ForeColor = System.Drawing.Color.White;
             this.createAccount_btn.Location = new System.Drawing.Point(138, 468);
             this.createAccount_btn.Name = "createAccount_btn";
-            this.createAccount_btn.Size = new System.Drawing.Size(187, 60);
+            this.createAccount_btn.Size = new System.Drawing.Size(150, 48);
             this.createAccount_btn.TabIndex = 10;
             this.createAccount_btn.Text = "Create Account";
             this.createAccount_btn.TextColor = System.Drawing.Color.White;
@@ -212,7 +215,8 @@ namespace ChatApplication
             this.groupBox1.Controls.Add(this.fname_label);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.about_txt);
-            this.groupBox1.Location = new System.Drawing.Point(330, 12);
+            this.groupBox1.Location = new System.Drawing.Point(264, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(458, 582);
             this.groupBox1.TabIndex = 11;
@@ -240,7 +244,7 @@ namespace ChatApplication
             // 
             // ProfileDescriptionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 606);
@@ -249,6 +253,7 @@ namespace ChatApplication
             this.Controls.Add(this.isVisible_toggle);
             this.Controls.Add(this.profilePicture);
             this.Controls.Add(this.profilePicture_btn);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ProfileDescriptionForm";
             this.Text = "ProfileDescriptionForm";
             this.Load += new System.EventHandler(this.ProfileDescriptionForm_Load);

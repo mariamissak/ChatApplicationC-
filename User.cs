@@ -77,6 +77,9 @@ namespace ChatApplication
             this.password = password;
             this.firstName = firstName;
             this.lastName = lastName;
+            userStories = new StoriesQueue<Story>();
+            contacts = new Dictionary<string, User>();
+            chatRoomsList = new ChatRoomsList();
 
             userDescription = new UserProfileDescription(this.userId, ProfilePicture, aboutDescription, isVisible);
         }
@@ -88,6 +91,9 @@ namespace ChatApplication
             this.password = password;
             this.firstName = firstName;
             this.lastName = lastName;
+            userStories = new StoriesQueue<Story>();
+            contacts = new Dictionary<string, User>();
+            chatRoomsList = new ChatRoomsList();
 
             userDescription = new UserProfileDescription(this.userId, ProfilePicture, aboutDescription, isVisible);
         }
@@ -98,6 +104,9 @@ namespace ChatApplication
             this.password = password;
             this.firstName = firstName;
             this.lastName = lastName;
+            userStories = new StoriesQueue<Story>();
+            contacts = new Dictionary<string, User>();
+            chatRoomsList = new ChatRoomsList();
 
             userDescription = new UserProfileDescription(this.userId, ProfImage.userprofilepicturedefault, aboutDescription, isVisible);
         }
