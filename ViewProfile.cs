@@ -16,7 +16,7 @@ namespace ChatApplication
     {
         MySqlConnection con;
 
-        string c = "server=localhost;database=chat;uid=root;pwd=root;";
+        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
         public ViewProfile()
         {
             InitializeComponent();

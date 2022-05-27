@@ -18,14 +18,11 @@ namespace ChatApplication
         private ChatRoom cur;
         MySqlConnection con;
 
-        string c = "server=localhost;database=chat;uid=root;pwd=root;";// change according to your database
+        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
         public ViewChatRooms()
         {
             InitializeComponent();
         }
-
-
-
         private void ViewChatRooms_Load(object sender, EventArgs e)
         {
 
@@ -146,7 +143,6 @@ namespace ChatApplication
             {
                 messagesList.Items.Add(msgs[i].MessageStatus.DateTime + " " + userNames[msgs[i].UserId] + ": " + msgs[i].Text + " " + msgs[i].MessageStatus.IsSeen);
             }
-
         }
         private void populateList()
         {
@@ -157,6 +153,37 @@ namespace ChatApplication
                 for (int i = 0; i < listItems.Length; i++)
                 {
 
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            //MainForm mf = new MainForm();
+            //mf.Show();
+            //this.Hide();
+            //MainForm.mainUser = null;
+
+        }
+        public void populateMessages(MessageStack<Message> messages, ChatRoom chatRoom, string chatRoomTitle)
+        {
+            label1.Text = chatRoomTitle;
+            Dictionary<long, string> userNames = new Dictionary<long, string>();
+            for (int i = 0; i < chatRoom.ChatRoomInfo.ListUsers.Count(); i++)
+            {
+                userNames.Add(chatRoom.ChatRoomInfo.ListUsers[i].UserId, chatRoom.ChatRoomInfo.ListUsers[i].FirstName);
+            }
+            Message[] msgs = messages.ViewAll();
+            for (int i = 0; i < msgs.Count(); i++)
+            {
+                messagesList.Items.Add(msgs[i].MessageStatus.DateTime + " " + userNames[msgs[i].UserId] + ": " + msgs[i].Text + " " + msgs[i].MessageStatus.IsSeen);
+            }
+
+        }
+        private void populateList()
+        {
+            if (MainForm.mainUser.ChatRoomsList!= null)
+            {
+                ListItem[] listItems = new ListItem[MainForm.mainUser.ChatRoomsList.Length()];
+                Node tmp = MainForm.mainUser.ChatRoomsList.head;
+                for (int i = 0; i < listItems.Length; i++)
+                {
                     string parts = "(You)";
                     listItems[i] = new ListItem();
                     for (int j = 0; j < tmp.value.ChatRoomInfo.ListUsers.Count(); j++)
@@ -323,6 +350,120 @@ namespace ChatApplication
                 //add remove from db
             }
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            //string message_text = String.Format(@"{0}  - {1}
+            //               {2}
+            //               -----------------------------------", "Me:", message_box.textBox1.Text, DateTime.Now);
+            ////string message_text = @"farah
+            //                      hello";
+            // string message_text =message_box.textBox1.Text;
+            string message_text = "Me: " + message_box.textBox1.Text;
+            messagesList.View = View.Details;
+            Message message = new Message(MainForm.mainUser.UserId, message_text, cur.chatRoomId);
+            cur.MessageStack.Push(message);
+            //messagesList.BeginUpdate();
+            messagesList.Items.Add(message_text);
+            messagesList.Items.Add(DateTime.Now.ToString());
+            if (message.MessageStatus.IsSeen)
+            {
+                messagesList.Items.Add("Seen");
+
+            }
+            else
+            {
+                messagesList.Items.Add("Delivered");
+            }
+            messagesList.Items.Add("--------------------------------------");
+            
+            messagesList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+            con = new MySqlConnection(c);
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "insert into messages values(@userid,@messageid,@chatroomid,@messagetext,@isSeen);";
+            cmd.Parameters.AddWithValue("@userid", MainForm.mainUser.UserId);
+            cmd.Parameters.AddWithValue("@messageid", message.MessageId);
+            cmd.Parameters.AddWithValue("@chatroomid", cur.chatRoomId);
+            cmd.Parameters.AddWithValue("@messagetext", message.Text);
+            cmd.Parameters.AddWithValue("@isSeen", message.MessageStatus.IsSeen);
+            cmd.ExecuteNonQuery();
+
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            MainForm mf = new MainForm();
+            mf.Show();
+            this.Hide();
+            MainForm.mainUser = null;
+        }
+
+        private void user_prof_btn_Click(object sender, EventArgs e)
+        {
+            ViewProfile prof = new ViewProfile();
+            prof.Show();
+        }
+
+        private void participants_btn_Click(object sender, EventArgs e)
+        {
+            ChatRoomUsers ch = new ChatRoomUsers(cur);
+            ch.Show();
+        }
+
+        private void ViewChatRooms_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            con.Dispose();
+        }
+
+        private void iconButton1_MouseHover(object sender, EventArgs e)
+        {
+            label2.Show();
+
+        }
+
+        private void logout_btn_MouseHover(object sender, EventArgs e)
+        {
+            label3.Show();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void user_prof_btn_MouseHover(object sender, EventArgs e)
+        {
+            label4.Show();
+        }
+
+        private void iconButton2_MouseHover(object sender, EventArgs e)
+        {
+            label6.Show();
+        }
+
+        private void iconButton3_MouseHover(object sender, EventArgs e)
+        {
+            label7.Show();
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            Contacts.ContactList cl = new Contacts.ContactList();
+            cl.Show();
+            this.Hide();
+        }
+
+        private void participants_btn_MouseHover(object sender, EventArgs e)
+        {
+            label5.Show();
+        }
+
+        private void viewInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageDetails md = new MessageDetails(cur,);
+        }
+    }
     }
     
 }

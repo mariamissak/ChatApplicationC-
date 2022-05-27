@@ -65,6 +65,25 @@ namespace ChatApplication.Contacts
 
         private void backButton_Click(object sender, EventArgs e)
         {
+            //ViewChatRooms cForm = new ViewChatRooms();
+            //cForm.Show();
+            //this.Hide();
+        }
+
+        private void addContactButton_Click(object sender, EventArgs e)
+        {
+            //AddNewContactForm ancf = new AddNewContactForm();
+            //ancf.Show();
+        }
+
+        private void add_contact_btn_Click(object sender, EventArgs e)
+        {
+            AddNewContactForm ancf = new AddNewContactForm();
+            ancf.Show();
+        }
+
+        private void chatrooms_btn_Click(object sender, EventArgs e)
+        {
             ViewChatRooms cForm = new ViewChatRooms();
             cForm.Show();
             this.Hide();

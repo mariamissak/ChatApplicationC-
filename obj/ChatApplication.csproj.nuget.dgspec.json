@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj": {}
+    "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj": {
+    "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj",
+        "projectUniqueName": "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplication.csproj",
         "projectName": "ChatApplication",
-        "projectPath": "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj",
+        "projectPath": "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplication.csproj",
         "packagesPath": "C:\\Users\\farah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\farah\\source\\repos\\ChatApplication\\obj\\",
+        "outputPath": "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\farah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "FontAwesome.Sharp": {
+              "target": "Package",
+              "version": "[5.15.4, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.29, )"

@@ -76,7 +76,8 @@ namespace ChatApplication.Contacts
 
             _fullName = _contact.FirstName + " " + _contact.LastName;
             contactName.Text = _fullName;
-            _img = _contact.UserDescription.ProfilePicture;
+            _img = _contact.UserDescription.ProfilePicture ;
+
             //requestImageFromUrl(_img);
 
             _phoneNumber = _contact.MobileNumber;
@@ -127,7 +128,7 @@ namespace ChatApplication.Contacts
                 //opening sql connection
                 MySqlConnection con;
 
-                string c = "server=localhost;database=chat;uid=root;pwd=root;";
+                string c = "server=localhost;database=sakila;uid=root;pwd=root;";
 
                 con = new MySqlConnection(c);
                 con.Open();

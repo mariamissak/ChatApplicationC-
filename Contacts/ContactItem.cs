@@ -142,5 +142,10 @@ namespace ChatApplication.Contacts
             ContactList pForm = (ContactList)ParentForm;
             pForm.populateContactInfo(_contact);
         }
+
+        private void lastSeen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

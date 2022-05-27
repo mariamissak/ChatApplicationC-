@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CxCaPYWdQUN3mYt/uFFeQSEmv4O/6t83X3vPaczA5ZwXZY+yILi2qwBqZRioqrvkHjxhBkAxLeNAa6MRk6LhEA==",
+  "dgSpecHash": "bwnzFlL/oTHzGCi1sAj16d3UHeZK8uy138xdGeAHR79cTOx5G3jDcn7pqtSm6FrPxs6dcRgvTdFXmzGmXX6Whw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj",
+  "projectFilePath": "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\farah\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
+    "C:\\Users\\farah\\.nuget\\packages\\fontawesome.sharp\\5.15.4\\fontawesome.sharp.5.15.4.nupkg.sha512",
     "C:\\Users\\farah\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\farah\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
     "C:\\Users\\farah\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",

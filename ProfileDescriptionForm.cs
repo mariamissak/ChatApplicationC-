@@ -100,5 +100,10 @@ namespace ChatApplication
                 MessageBox.Show("An Error ocurred", "Error", MessageBoxButtons.OK);
             }
         }
+
+        private void profilePicture_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

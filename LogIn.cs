@@ -60,7 +60,6 @@ namespace ChatApplication
                 }
               
                 MainForm.mainUser = new User(Convert.ToInt64(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), prof , dr[5].ToString(), Convert.ToBoolean((dr["isVisible"])));
- 
             }
             else
             {
