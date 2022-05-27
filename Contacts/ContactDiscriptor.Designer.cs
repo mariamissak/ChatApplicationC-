@@ -118,7 +118,6 @@ namespace ChatApplication.Contacts
             this.chatButton.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.chatButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
             this.chatButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-<<<<<<< aftermergingontacts
             this.chatButton.BorderColor = System.Drawing.Color.White;
             this.chatButton.BorderRadius = 30;
             this.chatButton.BorderSize = 2;

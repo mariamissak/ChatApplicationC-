@@ -40,9 +40,9 @@ namespace ChatApplication.Contacts
             if (dr.Read())
             {
                 MemoryStream memoryStream = new MemoryStream((byte)dr[7]);
-                
+
                 //need to grab user found info 
-                User contactUserFound = new User(Convert.ToInt64(dr[0]),dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),dr[4].ToString(),Image.FromStream(memoryStream),dr[5].ToString(),Convert.ToBoolean(dr[6]));// = user found
+                User contactUserFound = new User(Convert.ToInt64(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), Image.FromStream(memoryStream), dr[5].ToString(), Convert.ToBoolean(dr[6]));// = user found
                 KeyValuePair<string, User> contact = new KeyValuePair<string, User>(phoneNumber_txt.textBox1.Text, contactUserFound);
                 MainForm.mainUser.Contacts.Append(contact);
                 //db set main user  new contact list
@@ -69,16 +69,14 @@ namespace ChatApplication.Contacts
 
             dr.Close();
             con.Dispose();
-            
+
         }
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
 
         }
-        
 
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -87,3 +85,4 @@ namespace ChatApplication.Contacts
 
     }
 }
+

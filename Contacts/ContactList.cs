@@ -89,10 +89,5 @@ namespace ChatApplication.Contacts
             this.Hide();
         }
 
-        private void addContactButton_Click(object sender, EventArgs e)
-        {
-            AddNewContactForm ancf = new AddNewContactForm();
-            ancf.Show();
-        }
     }
 }
