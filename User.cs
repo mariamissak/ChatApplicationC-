@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using MySql.Data.MySqlClient;
+
 namespace ChatApplication
 {
 	public class User
 	{
-        private static long counter = 0;
+        MySqlConnection con;
+    
         private long userId;
         public long UserId
         {
@@ -71,8 +74,18 @@ namespace ChatApplication
 
         public User(string mobileNumber, string password, string firstName, string lastName, Image ProfilePicture, string aboutDescription, bool isVisible)
         {
-            counter++;
-            userId = counter;
+            con = new MySqlConnection(MainForm.dbConnStr);
+            con.Open();
+
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "select max(userid) from users;";
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read()) userId = Convert.ToInt64(dr[0]) +  1;
+            else userId = 1;
+
+            //userId = counter;
             this.mobileNumber = mobileNumber;
             this.password = password;
             this.firstName = firstName;
@@ -82,6 +95,8 @@ namespace ChatApplication
             chatRoomsList = new ChatRoomsList();
 
             userDescription = new UserProfileDescription(this.userId, ProfilePicture, aboutDescription, isVisible);
+            dr.Close();
+            con.Dispose();
         }
 
         public User(long userId, string mobileNumber, string password, string firstName, string lastName, Image ProfilePicture, string aboutDescription, bool isVisible)
@@ -109,6 +124,7 @@ namespace ChatApplication
             chatRoomsList = new ChatRoomsList();
 
             userDescription = new UserProfileDescription(this.userId, ProfImage.userprofilepicturedefault, aboutDescription, isVisible);
+       
         }
 
         public void setChatRoomList(ChatRoom chatroom)

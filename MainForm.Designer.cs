@@ -33,6 +33,7 @@ namespace ChatApplication
             this.logIn_btn = new ChatApplication.RoundedButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.exit_btn = new ChatApplication.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@ namespace ChatApplication
             this.creatAccount_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.creatAccount_btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.creatAccount_btn.ForeColor = System.Drawing.Color.White;
-            this.creatAccount_btn.Location = new System.Drawing.Point(306, 214);
+            this.creatAccount_btn.Location = new System.Drawing.Point(306, 174);
             this.creatAccount_btn.Name = "creatAccount_btn";
             this.creatAccount_btn.Size = new System.Drawing.Size(234, 68);
             this.creatAccount_btn.TabIndex = 0;
@@ -67,7 +68,7 @@ namespace ChatApplication
             this.logIn_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logIn_btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.logIn_btn.ForeColor = System.Drawing.Color.White;
-            this.logIn_btn.Location = new System.Drawing.Point(306, 303);
+            this.logIn_btn.Location = new System.Drawing.Point(306, 259);
             this.logIn_btn.Name = "logIn_btn";
             this.logIn_btn.Size = new System.Drawing.Size(234, 68);
             this.logIn_btn.TabIndex = 1;
@@ -101,12 +102,33 @@ namespace ChatApplication
             this.label1.TabIndex = 3;
             this.label1.Text = "CHAT APPLICATION";
             // 
+            // exit_btn
+            // 
+            this.exit_btn.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.exit_btn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.exit_btn.BorderColor = System.Drawing.Color.White;
+            this.exit_btn.BorderRadius = 30;
+            this.exit_btn.BorderSize = 2;
+            this.exit_btn.FlatAppearance.BorderSize = 0;
+            this.exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit_btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.exit_btn.ForeColor = System.Drawing.Color.White;
+            this.exit_btn.Location = new System.Drawing.Point(306, 346);
+            this.exit_btn.Name = "exit_btn";
+            this.exit_btn.Size = new System.Drawing.Size(234, 68);
+            this.exit_btn.TabIndex = 5;
+            this.exit_btn.Text = "Exit";
+            this.exit_btn.TextColor = System.Drawing.Color.White;
+            this.exit_btn.UseVisualStyleBackColor = false;
+            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exit_btn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.logIn_btn);
@@ -126,5 +148,6 @@ namespace ChatApplication
         private RoundedButton logIn_btn;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label1;
+        private RoundedButton exit_btn;
     }
 }

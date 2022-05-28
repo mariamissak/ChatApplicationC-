@@ -80,7 +80,7 @@ namespace ChatApplication
                 MainForm.mainUser.ChatRoomsList.At(chatRoomPos).MessageStack.Push(new Message(Convert.ToInt64(dr[0].ToString()), Convert.ToInt64(dr[1].ToString()), dr[3].ToString(),Convert.ToInt64(dr[2].ToString())));
             }
             ViewChatRooms pForm = (ViewChatRooms)ParentForm;
-            //pForm.populateMessages(MainForm.mainUser.ChatRoomsList.At(chatRoomPos).GetMessageStack(), MainForm.mainUser.ChatRoomsList.At(chatRoomPos),chatRoomTitle);
+            pForm.populateMessages(MainForm.mainUser.ChatRoomsList.At(chatRoomPos).MessageStack, MainForm.mainUser.ChatRoomsList.At(chatRoomPos),chatRoomTitle);
         }
 
         private void ListItem_Load(object sender, EventArgs e)

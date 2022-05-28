@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ChatApplication
 {
     public class ChatRoom
     {
-        private static long counter;
-        public long chatRoomId { get { return chatRoomId; } set { chatRoomId = value; } }
+        MySqlConnection con;
+        private long _chatRoomId;
+        public long chatRoomId { get { return _chatRoomId; } set { _chatRoomId = value; } }
         private Boolean isPrivate; //one to one chat or group chat
         public Boolean IsPrivate { get { return isPrivate; } set { isPrivate = value; } }
         private DateTime lastDate;
@@ -18,19 +20,44 @@ namespace ChatApplication
         public ChatRoomInfo ChatRoomInfo { get { return chatRoomInfo; } set { chatRoomInfo = value; } }
         private MessageStack<Message> messagestack;
         public MessageStack<Message> MessageStack { get { return messagestack; } set { messagestack = value; } }
+        
         public ChatRoom(Boolean isPrivate, List<User> listOfUsers)
         {
-            counter++;
-            chatRoomId = counter;
+
+            con = new MySqlConnection(MainForm.dbConnStr);
+            con.Open();
+
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "select max(chatroomId) from chatrooms;";
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                try
+                {
+                    _chatRoomId = Convert.ToInt64(dr[0]) + 1;
+                }
+                catch(Exception)
+                {
+                    _chatRoomId = 1;
+                }
+            }
+             
+          
             this.isPrivate = isPrivate;
-            chatRoomInfo = new ChatRoomInfo(listOfUsers, chatRoomId, lastDate);
+            chatRoomInfo = new ChatRoomInfo(listOfUsers, _chatRoomId, lastDate);
+            dr.Close();
+            con.Dispose();
         }
-        public ChatRoom(long chatRoomId, Boolean isPrivate, List<User> listOfUsers)
+        public ChatRoom(long _chatRoomId, Boolean isPrivate, List<User> listOfUsers)
         {
 
-            this.chatRoomId = chatRoomId;
+            this._chatRoomId = _chatRoomId;
             this.isPrivate = isPrivate;
             chatRoomInfo = new ChatRoomInfo(listOfUsers, chatRoomId, lastDate);
+            messagestack = new MessageStack<Message>();
         }
 
     }

@@ -41,6 +41,7 @@ namespace ChatApplication
             this.lname_label = new System.Windows.Forms.Label();
             this.terms_chk = new System.Windows.Forms.CheckBox();
             this.conditions = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // label1
@@ -223,12 +224,27 @@ namespace ChatApplication
             this.conditions.TabIndex = 17;
             this.conditions.Text = "Terms and Conditions";
             // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
+            this.iconButton1.IconColor = System.Drawing.Color.PaleVioletRed;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton1.IconSize = 60;
+            this.iconButton1.Location = new System.Drawing.Point(1, 2);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(71, 74);
+            this.iconButton1.TabIndex = 22;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
             // CreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.conditions);
             this.Controls.Add(this.terms_chk);
             this.Controls.Add(this.lname_label);
@@ -263,5 +279,6 @@ namespace ChatApplication
         private System.Windows.Forms.Label lname_label;
         private System.Windows.Forms.CheckBox terms_chk;
         private System.Windows.Forms.Label conditions;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

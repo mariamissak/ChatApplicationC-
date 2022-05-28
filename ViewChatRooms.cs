@@ -17,8 +17,10 @@ namespace ChatApplication
     {
         private ChatRoom cur;
         MySqlConnection con;
-
-
+        MySqlConnection con2;
+        MySqlConnection con3;
+        MySqlConnection con4;
+        MySqlConnection con5;
         public ViewChatRooms()
         {
             InitializeComponent();
@@ -35,7 +37,15 @@ namespace ChatApplication
 
             //messagesList.LayoutColumnHeaders.MaximumTextLines = messagesList.LayoutItemsCurrent.MaximumTextLines = 3;
             con = new MySqlConnection(MainForm.dbConnStr);
+            con2 = new MySqlConnection(MainForm.dbConnStr);
+            con3 = new MySqlConnection(MainForm.dbConnStr);
+            con4 = new MySqlConnection(MainForm.dbConnStr);
+            con5 = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
+            con2.Open();
+            con3.Open();
+            con4.Open();
+            con5.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "select * from chatroomusers where userid = @userid";
@@ -47,7 +57,7 @@ namespace ChatApplication
             while (chatroomsOfMainUser.Read())
             {
                 MySqlCommand cmd2 = new MySqlCommand();
-                cmd2.Connection = con;
+                cmd2.Connection = con2;
                 cmd2.CommandText = "select * from chatrooms where chatroomid = @chid";
                 cmd2.CommandType = CommandType.Text;
                 cmd2.Parameters.AddWithValue("@chid", chatroomsOfMainUser[0]);
@@ -55,7 +65,7 @@ namespace ChatApplication
                 if (detailsOfChatRoom.Read())
                 {
                     MySqlCommand cmd3 = new MySqlCommand();
-                    cmd3.Connection = con;
+                    cmd3.Connection = con3;
                     cmd3.CommandText = "select * from chatroomusers where chatroomid = @chid";
                     cmd3.CommandType = CommandType.Text;
                     cmd3.Parameters.AddWithValue("@chid", detailsOfChatRoom[0]);
@@ -64,27 +74,34 @@ namespace ChatApplication
                     while (allUsersInChatRoom.Read())
                     {
                         MySqlCommand cmd4 = new MySqlCommand();
-                        cmd4.Connection = con;
+                        cmd4.Connection = con4;
                         cmd4.CommandText = "select * from users where userid = @uid";
                         cmd4.CommandType = CommandType.Text;
                         cmd4.Parameters.AddWithValue("@uid", allUsersInChatRoom[1]);
                         MySqlDataReader userDetailsInChatROOM = cmd4.ExecuteReader();
                         if (userDetailsInChatROOM.Read())
                         {
-                            byte[] img = (byte[])userDetailsInChatROOM[7];
-                            MemoryStream ms = new MemoryStream(img);
+                            Image prof;
+                            if (Convert.IsDBNull(userDetailsInChatROOM[7]))
+                            {
 
-                            Image prof = Image.FromStream(ms);
-                            listOfUsers.Add(new User(Convert.ToInt64(userDetailsInChatROOM[0].ToString()), userDetailsInChatROOM[1].ToString(), userDetailsInChatROOM[2].ToString(), userDetailsInChatROOM[3].ToString(), userDetailsInChatROOM[4].ToString(), prof, userDetailsInChatROOM[5].ToString(), Convert.ToBoolean(userDetailsInChatROOM[6])));
+                                listOfUsers.Add(new User(Convert.ToInt64(userDetailsInChatROOM[0].ToString()), userDetailsInChatROOM[1].ToString(), userDetailsInChatROOM[2].ToString(), userDetailsInChatROOM[3].ToString(), userDetailsInChatROOM[4].ToString(), userDetailsInChatROOM[5].ToString(), Convert.ToBoolean(userDetailsInChatROOM[6])));
+                            }
+                            else
+                            {
+                                byte[] img = (byte[])userDetailsInChatROOM[7];
+                                MemoryStream ms = new MemoryStream(img);
+                                prof = Image.FromStream(ms);
+                                listOfUsers.Add(new User(Convert.ToInt64(userDetailsInChatROOM[0].ToString()), userDetailsInChatROOM[1].ToString(), userDetailsInChatROOM[2].ToString(), userDetailsInChatROOM[3].ToString(), userDetailsInChatROOM[4].ToString(), prof, userDetailsInChatROOM[5].ToString(), Convert.ToBoolean(userDetailsInChatROOM[6])));
+                            }
                         }
                         userDetailsInChatROOM.Close();
                     }
-
                     allUsersInChatRoom.Close();
 
-
-                    ChatRoom ch = new ChatRoom(Convert.ToInt64(detailsOfChatRoom[0].ToString()), Convert.ToBoolean(detailsOfChatRoom[1]), listOfUsers);
-                    MainForm.mainUser.setChatRoomList(ch);
+                
+                 ChatRoom ch = new ChatRoom(Convert.ToInt64(detailsOfChatRoom[0].ToString()), Convert.ToBoolean(detailsOfChatRoom[1]), listOfUsers);
+                 MainForm.mainUser.setChatRoomList(ch);
                 }
                 detailsOfChatRoom.Close();
 
@@ -96,7 +113,7 @@ namespace ChatApplication
             if (MainForm.mainUser.Contacts.Count == 0)
             {
                 MySqlCommand cmd5 = new MySqlCommand();
-                cmd5.Connection = con;
+                cmd5.Connection = con5;
                 cmd5.CommandText = "select * from users,contacts where contacts.userid=@uid and contacts.phonenumber=users.phonenumber;";
                 cmd5.Parameters.AddWithValue("@uid", MainForm.mainUser.UserId);
                 MySqlDataReader d = cmd5.ExecuteReader();
@@ -120,6 +137,11 @@ namespace ChatApplication
                 }
                 d.Close();
             }
+            con.Dispose();
+            con2.Dispose();
+            con3.Dispose();
+            con4.Dispose();
+            con5.Dispose();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -130,21 +152,31 @@ namespace ChatApplication
             //MainForm.mainUser = null;
 
         }
+
         public void populateMessages(MessageStack<Message> messages, ChatRoom chatRoom, string chatRoomTitle)
         {
+            flowLayoutPanel2.Controls.Clear();
+
             label1.Text = chatRoomTitle;
             Dictionary<long, string> userNames = new Dictionary<long, string>();
             for (int i = 0; i < chatRoom.ChatRoomInfo.ListUsers.Count(); i++)
             {
                 userNames.Add(chatRoom.ChatRoomInfo.ListUsers[i].UserId, chatRoom.ChatRoomInfo.ListUsers[i].FirstName);
             }
+            
             Message[] msgs = messages.ViewAll();
             for (int i = 0; i < msgs.Count(); i++)
             {
-                messagesList.Items.Add(msgs[i].MessageStatus.DateTime + " " + userNames[msgs[i].UserId] + ": " + msgs[i].Text + " " + msgs[i].MessageStatus.IsSeen);
+                Console.WriteLine(msgs[0].Text);
+                MessageItem messageItem = new MessageItem();
+                messageItem.Message = msgs[i];
+                //messageItem.initializeMessageItem();
+                //messagesList.Items.Add(msgs[i].MessageStatus.DateTime + " " + userNames[msgs[i].UserId] + ": " + msgs[i].Text + " " + msgs[i].MessageStatus.IsSeen);
+                flowLayoutPanel2.Controls.Add(messageItem);
             }
         }
 
+        
         private void populateList()
         {
             if (MainForm.mainUser.ChatRoomsList != null)
@@ -171,7 +203,11 @@ namespace ChatApplication
                     listItems[i].ChatRoomPos = i;
                     listItems[i].ChatRoomId = tmp.value.chatRoomId;
                     listItems[i].ChatRoomTitle = parts;
-                    listItems[i].LastMessage = tmp.value.MessageStack.Top().Text;
+                    //if (!tmp.value.MessageStack.Empty())
+                    //{
+                    //    listItems[i].LastMessage = tmp.value.MessageStack.Top().Text;
+                    //}
+                    
                     flowLayoutPanel1.Controls.Add(listItems[i]);
                     tmp = tmp.next;
 
@@ -186,36 +222,7 @@ namespace ChatApplication
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            //string message_text = String.Format(@"{0}  - {1}
-            //               {2}
-            //               -----------------------------------", "Me:", message_box.textBox1.Text, DateTime.Now);
-            ////string message_text = @"farah
-            //                      hello";
-            // string message_text =message_box.textBox1.Text;
-            string message_text = "Me: " + message_box.textBox1.Text;
-
-            messagesList.View = View.Details;
-            Message message = new Message(MainForm.mainUser.UserId, message_text, cur.chatRoomId);
-            //messagesList.BeginUpdate();
-            messagesList.Items.Add(message_text);
-            messagesList.Items.Add(DateTime.Now.ToString());
-            messagesList.Items.Add("--------------------------------------");
-            //messagesList.EndUpdate();
-            //this.Controls.Add(this.messagesList);
-            // messagesList.Items.Add(message.MessageStatus.DateTime.ToString());
-            //MessageBox.Show("Button clicked");
-            messagesList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
-
-            con = new MySqlConnection(MainForm.dbConnStr);
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "insert into messages values(@userid,@messageid,@chatroomid,@messagetext,@isSeen);";
-            cmd.Parameters.AddWithValue("@userid", MainForm.mainUser.UserId);
-            cmd.Parameters.AddWithValue("@messageid", message.MessageId);
-            cmd.Parameters.AddWithValue("@chatroomid", cur.chatRoomId);
-            cmd.Parameters.AddWithValue("@messagetext", message.Text);
-            cmd.Parameters.AddWithValue("@isSeen", message.MessageStatus.IsSeen);
-            cmd.ExecuteNonQuery();
+            
 
         }
 
@@ -288,7 +295,7 @@ namespace ChatApplication
                 //string x = dr["photopath"].ToString();
 
 
-                Story mystory = new Story(1, Image.FromStream(ms), dr["storytext"].ToString());
+                Story mystory = new Story(sUser.UserId, Image.FromStream(ms), dr["storytext"].ToString());
                 mystory.PublishedStoryTime = Convert.ToDateTime(dr["timepublished"].ToString());
                 imageNumber++;
                 sUser.UserStories.Enqueue(mystory);
@@ -364,6 +371,52 @@ namespace ChatApplication
             MainForm.mainUser = null;
         }
 
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
 
+        private void iconButton3_Click_1(object sender, EventArgs e)
+        {
+            Contacts.ContactList cl = new Contacts.ContactList();
+            cl.Show();
+            this.Hide();
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void send_icon_btn_Click(object sender, EventArgs e)
+        {
+            //string message_text = String.Format(@"{0}  - {1}
+            //               {2}
+            //               -----------------------------------", "Me:", message_box.textBox1.Text, DateTime.Now);
+            ////string message_text = @"farah
+            //                      hello";
+            // string message_text =message_box.textBox1.Text;
+
+            string message_text = message_box.textBox1.Text;
+
+            //messagesList.View = View.Details;
+            Message message = new Message(MainForm.mainUser.UserId, message_text, cur.chatRoomId);
+            MessageItem messageItem = new MessageItem();
+            messageItem.Message = message;
+            flowLayoutPanel2.Controls.Add(messageItem);
+            con = new MySqlConnection(MainForm.dbConnStr);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "insert into messages values(@userid,@messageid,@chatroomid,@messagetext,@isSeen);";
+            cmd.Parameters.AddWithValue("@userid", MainForm.mainUser.UserId);
+            cmd.Parameters.AddWithValue("@messageid", message.MessageId);
+            cmd.Parameters.AddWithValue("@chatroomid", cur.chatRoomId);
+            cmd.Parameters.AddWithValue("@messagetext", message.Text);
+            cmd.Parameters.AddWithValue("@isSeen", message.MessageStatus.IsSeen);
+            cmd.ExecuteNonQuery();
+
+            con.Dispose();
+        }
     }
 }

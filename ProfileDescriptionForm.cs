@@ -53,7 +53,7 @@ namespace ChatApplication
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "insert into Users values(@id,@phone,@pass,@fname,@lname, @AboutDescription, @IsVisible,@ProfilePicture);";
+            cmd.CommandText = "insert into users values(@id,@phone,@pass,@fname,@lname, @AboutDescription, @IsVisible,@ProfilePicture);";
             cmd.Parameters.AddWithValue("@id", MainForm.mainUser.UserId);
             cmd.Parameters.AddWithValue("@phone", MainForm.mainUser.MobileNumber);
             cmd.Parameters.AddWithValue("@pass", MainForm.mainUser.Password);

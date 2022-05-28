@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using MySql.Data.MySqlClient;
 
 namespace ChatApplication
 {
     public class Story
     {
-        static int counter = 0;
+        MySqlConnection con;
         private long userId;
         private long storyId;
         public long UserId { get { return userId; } set { userId = value; } }
@@ -24,19 +25,42 @@ namespace ChatApplication
         //Each user story should be disappeared to all his contacts after 24 hours from the time it was published.
         public Story(long userId, string storyText)
         {
-            counter++;
-            storyId = counter;
+            con = new MySqlConnection(MainForm.dbConnStr);
+            con.Open();
+
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "select max(storyid) from stories;";
+
+            MySqlDataReader dr = cmd.ExecuteReader(); 
+            if (dr.Read()) storyId = Convert.ToInt64(dr[0]) + 1;
+            else storyId = 1;
+
             this.userId = userId;
             this.storyText = storyText;
+            dr.Close();
+            con.Dispose();
         }
         public Story(long userId, Image photo, string storyText)
         {
+            con = new MySqlConnection(MainForm.dbConnStr);
+            con.Open();
+
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "select max(storyid) from stories;";
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read()) storyId = Convert.ToInt64(dr[0]) + 1;
+            else storyId = 1;
+
             publishedStoryTime = DateTime.Now;
-            counter++;
-            storyId = counter;
+       
             this.userId = userId;
             this.storyText = storyText;
             this.photo = photo;
+            dr.Close();
+            con.Dispose();
         }
     }
 }

@@ -78,5 +78,11 @@ namespace ChatApplication
 
             return res;
         }
+
+        private void exit_btn_Click(object sender, EventArgs e)
+        {
+            ActiveForm.Close();
+            Application.Exit();
+        }
     }
 }

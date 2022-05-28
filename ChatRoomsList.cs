@@ -67,7 +67,7 @@ namespace ChatApplication
 
         public void InsertAt(int pos, ChatRoom val)
         {
-            Debug.Assert(pos >= 0 && pos < count);
+            Debug.Assert(pos >= 0 && pos <= count);
             Node tmp = head;
             Node newNode = new Node(val);
             if (pos == 0)
