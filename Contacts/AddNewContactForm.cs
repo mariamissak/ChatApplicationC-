@@ -22,12 +22,9 @@ namespace ChatApplication.Contacts
 
         MySqlConnection con;
 
-
-        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
-
         private void AddContactbutton_Click(object sender, EventArgs e)
         {
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;

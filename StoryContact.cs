@@ -28,18 +28,11 @@ namespace ChatApplication
 
 
         [Category("Contacts Card")]
-         public User SContact
+        public User SContact
         {
             get { return _sContact; }
             set { _sContact = value; datepublished.Text = value.UserStories.Back().PublishedStoryTime.ToString();
                 profilePicture.Image = value.UserDescription.ProfilePicture;
-                if (SContact == MainForm.mainUser)
-                {
-                    contactName.Text = "My Story";
-                    profilePicture.BorderColor = Color.DodgerBlue;
-                    profilePicture.BorderColor2 = Color.SpringGreen;
-                }
-                else
                 contactName.Text = value.FirstName + " " + _sContact.LastName;
             }
         }
@@ -82,11 +75,6 @@ namespace ChatApplication
         {
             ContactsStories pForm = (ContactsStories)ParentForm;
             pForm.showStories(_sContact);
-            if (_sContact != MainForm.mainUser)
-            {
-                profilePicture.BorderColor = Color.Silver;
-                profilePicture.BorderColor2 = Color.DarkGray;
-            }
             
 
         }

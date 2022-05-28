@@ -16,8 +16,6 @@ namespace ChatApplication
     {
         MySqlConnection con; 
 
-       string c = "server=localhost;database=chat;uid=root;pwd=root;";
-
 
         public LogIn()
         {
@@ -31,7 +29,7 @@ namespace ChatApplication
 
         private void logIn_btn_Click(object sender, EventArgs e)
         {
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
@@ -60,6 +58,11 @@ namespace ChatApplication
                 }
               
                 MainForm.mainUser = new User(Convert.ToInt64(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), prof , dr[5].ToString(), Convert.ToBoolean((dr["isVisible"])));
+
+
+                ViewChatRooms vc = new ViewChatRooms();
+                vc.Show();
+                this.Hide();
             }
             else
             {
@@ -67,9 +70,6 @@ namespace ChatApplication
             }
             dr.Close();
             con.Dispose();
-            ViewChatRooms vc = new ViewChatRooms();
-            vc.Show();
-            this.Hide();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)

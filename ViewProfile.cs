@@ -16,7 +16,6 @@ namespace ChatApplication
     {
         MySqlConnection con;
 
-        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
         public ViewProfile()
         {
             InitializeComponent();
@@ -44,7 +43,7 @@ namespace ChatApplication
             MainForm.mainUser.UserDescription.IsVisible = toggleButton1.Checked;
 
             //mysql code to save to database missing
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;

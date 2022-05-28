@@ -43,7 +43,7 @@ namespace ChatApplication
             this.profilePicture.BorderColor = System.Drawing.Color.RoyalBlue;
             this.profilePicture.BorderColor2 = System.Drawing.Color.HotPink;
             this.profilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.profilePicture.BorderSize = 3;
+            this.profilePicture.BorderSize = 2;
             this.profilePicture.GradientAngle = 50F;
             this.profilePicture.Location = new System.Drawing.Point(2, 3);
             this.profilePicture.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

@@ -17,10 +17,9 @@ namespace ChatApplication
     {
         MySqlConnection con;
 
-        string c = "server=localhost;database=chat;uid=root;pwd=root;";
-         Image ProfilePicture;
-         String AboutDescription;
-         Boolean IsVisible;
+        Image ProfilePicture;
+        String AboutDescription;
+        bool IsVisible;
         public ProfileDescriptionForm()
         {
             InitializeComponent();
@@ -50,7 +49,7 @@ namespace ChatApplication
             AboutDescription = about_txt.textBox1.Text.ToString();
             //photo details to be continued
             MainForm.mainUser = new User(CreateAccount.crmobileNumber, CreateAccount.crpassword, CreateAccount.crfirstName, CreateAccount.crlastName, ProfilePicture, AboutDescription, IsVisible);
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;

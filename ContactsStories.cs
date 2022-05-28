@@ -128,13 +128,7 @@ namespace ChatApplication
         private void roundedButton2_Click(object sender, EventArgs e)
         {
             
-            string server = "localhost";
-            //change the following according to your local database
-            string database = "chat";
-            string username = "root";
-            string password = "root";
-            string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
-            MySqlConnection conn = new MySqlConnection(constring);
+            MySqlConnection conn = new MySqlConnection(MainForm.dbConnStr);
             conn.Open();
             MemoryStream ms = new MemoryStream();
             pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);

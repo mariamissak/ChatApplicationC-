@@ -18,7 +18,7 @@ namespace ChatApplication
         private ChatRoom cur;
         MySqlConnection con;
 
-        string c = "server=localhost;database=chat;uid=root;pwd=root;";
+
         public ViewChatRooms()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace ChatApplication
             messagesList.Columns.Add(header);
 
             //messagesList.LayoutColumnHeaders.MaximumTextLines = messagesList.LayoutItemsCurrent.MaximumTextLines = 3;
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
@@ -122,7 +122,14 @@ namespace ChatApplication
             }
         }
 
-       
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            //MainForm mf = new MainForm();
+            //mf.Show();
+            //this.Hide();
+            //MainForm.mainUser = null;
+
+        }
         public void populateMessages(MessageStack<Message> messages, ChatRoom chatRoom, string chatRoomTitle)
         {
             label1.Text = chatRoomTitle;
@@ -199,7 +206,7 @@ namespace ChatApplication
             //MessageBox.Show("Button clicked");
             messagesList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
 
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "insert into messages values(@userid,@messageid,@chatroomid,@messagetext,@isSeen);";
@@ -214,7 +221,7 @@ namespace ChatApplication
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(c);
+            MySqlConnection conn = new MySqlConnection(MainForm.dbConnStr);
             conn.Open();
             //Load stories into stories queue for users who have stories
             foreach (User sContact in MainForm.mainUser.Contacts.Values)
@@ -247,7 +254,25 @@ namespace ChatApplication
             con.Dispose();
         }
 
-        
+        private void iconButton2_Click_1(object sender, EventArgs e)
+        {
+
+            MySqlConnection conn = new MySqlConnection(MainForm.dbConnStr);
+            conn.Open();
+            //Load stories into stories queue for users who have stories
+            foreach (User sContact in MainForm.mainUser.Contacts.Values)
+            {
+                getStories(sContact, conn);
+            }
+            getStories(MainForm.mainUser, conn);
+
+
+            ContactsStories cs = new ContactsStories();
+            cs.Show();
+            this.Hide();
+            conn.Dispose();
+
+        }
         public void getStories(User sUser, MySqlConnection conn)
         {
             MySqlCommand cmd = new MySqlCommand("select * from stories where userid=@userid", conn);
@@ -294,6 +319,10 @@ namespace ChatApplication
             label3.Show();
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void user_prof_btn_MouseHover(object sender, EventArgs e)
         {
@@ -335,6 +364,6 @@ namespace ChatApplication
             MainForm.mainUser = null;
         }
 
-        
+
     }
 }

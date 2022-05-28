@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplication.csproj": {}
+    "C:\\Users\\Lenovo\\Desktop\\martina\\ChatApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplication.csproj": {
+    "C:\\Users\\Lenovo\\Desktop\\martina\\ChatApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\martina\\ChatApplication.csproj",
         "projectName": "ChatApplication",
-        "projectPath": "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplication.csproj",
-        "packagesPath": "C:\\Users\\farah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\farah\\Downloads\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\ChatApplicationC--contactlist-fixing-after-Mariams-manual-merge-\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\martina\\ChatApplication.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\martina\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\farah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

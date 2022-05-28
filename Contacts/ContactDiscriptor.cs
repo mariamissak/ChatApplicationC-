@@ -27,44 +27,6 @@ namespace ChatApplication.Contacts
         private string _description;
         private string _phoneNumber;
 
-
-
-        //profilePicture
-        //contactName
-        //bio
-        //story button
-        /*void requestImageFromUrl(string value)
-        {
-            Stream tempStream = null;
-            HttpWebResponse imgResponse = null;
-            try
-            {
-                HttpWebRequest imgRequest = (HttpWebRequest)HttpWebRequest.Create(value);
-                imgRequest.AllowWriteStreamBuffering = true;
-                imgResponse = (HttpWebResponse)imgRequest.GetResponse();
-                tempStream = imgResponse.GetResponseStream();
-                Bitmap avatarBitMap;
-                //set Background image
-                if (tempStream != null)
-                {
-                    avatarBitMap = new Bitmap(tempStream);
-                    avatarBitMap = new Bitmap(avatarBitMap, profilePicture.Width, profilePicture.Height);
-
-                    profilePicture.BackgroundImage = avatarBitMap;
-                }
-            }
-            catch { }
-            finally
-            {
-                if (tempStream != null)
-                    tempStream.Close();
-                if (imgResponse != null)
-                {
-                    imgResponse.Close();
-                }
-            }
-        }*/
-
         public User Contact
         {
             get { return _contact; }
@@ -76,15 +38,22 @@ namespace ChatApplication.Contacts
 
             _fullName = _contact.FirstName + " " + _contact.LastName;
             contactName.Text = _fullName;
-            _img = _contact.UserDescription.ProfilePicture ;
-
-            //requestImageFromUrl(_img);
 
             _phoneNumber = _contact.MobileNumber;
-            _description = _contact.UserDescription.AboutDescription;
-            bio.Text = _description;
             mobileNumber.Text = _phoneNumber;
-            profilePicture.Image = _img;
+            
+            //requestImageFromUrl(_img);
+
+            _img = _contact.UserDescription.ProfilePicture ;
+            _description = _contact.UserDescription.AboutDescription;
+
+            if (MainForm.checkMutualContact(_contact))
+            {
+                bio.Text = _description;
+                profilePicture.Image = _img;
+            }
+            
+
             if (_contact.UserStories.Empty())
             {
                 storyViewButton.Visible = false;
@@ -128,9 +97,7 @@ namespace ChatApplication.Contacts
                 //opening sql connection
                 MySqlConnection con;
 
-                string c = "server=localhost;database=sakila;uid=root;pwd=root;";
-
-                con = new MySqlConnection(c);
+                con = new MySqlConnection(MainForm.dbConnStr);
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = con;

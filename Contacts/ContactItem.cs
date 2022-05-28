@@ -134,7 +134,10 @@ namespace ChatApplication.Contacts
         {
             contactName.Text = _contact.FirstName;
             lastSeen.Text = "last seen yesterday";
-            Img = _contact.UserDescription.ProfilePicture;
+            if (MainForm.checkMutualContact(_contact))
+            {
+                Img = _contact.UserDescription.ProfilePicture;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
