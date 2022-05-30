@@ -49,9 +49,10 @@ namespace ChatApplication.Contacts
             }
         }
 
-        private void populateList(Dictionary<string, User> contacts)
+        public void populateList(Dictionary<string, User> contacts)
         {
-            ContactItem[] contactItems = new ContactItem[contacts.Count];
+            flowLayoutPanel1.Controls.Clear();
+           ContactItem[] contactItems = new ContactItem[contacts.Count];
 
             int i = 0;
             foreach (var contact in contacts)
@@ -80,14 +81,21 @@ namespace ChatApplication.Contacts
         {
             AddNewContactForm ancf = new AddNewContactForm();
             ancf.Show();
+            this.Close();
         }
 
         private void chatrooms_btn_Click(object sender, EventArgs e)
         {
             ViewChatRooms cForm = new ViewChatRooms();
             cForm.Show();
-            this.Hide();
+            this.Close();
         }
 
+        private void newGroupChatButton_Click(object sender, EventArgs e)
+        {
+            GroupChatCreate GCC = new GroupChatCreate();
+            GCC.Show();
+            this.Close();
+        }
     }
 }

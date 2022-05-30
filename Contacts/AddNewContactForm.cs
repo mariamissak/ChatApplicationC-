@@ -19,8 +19,8 @@ namespace ChatApplication.Contacts
         {
             InitializeComponent();
         }
-
         MySqlConnection con;
+        MySqlConnection con2;
 
         private void AddContactbutton_Click(object sender, EventArgs e)
         {
@@ -34,14 +34,20 @@ namespace ChatApplication.Contacts
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            if (dr.Read())
+            if (dr.Read() && dr[1].ToString() != MainForm.mainUser.MobileNumber)
             {
-                MemoryStream memoryStream = new MemoryStream((byte)dr[7]);
+                byte[] img = (byte[])dr[7];
+                MemoryStream ms = new MemoryStream(img);
+                //MemoryStream memoryStream = new MemoryStream((byte)dr[7]);
 
                 //need to grab user found info 
-                User contactUserFound = new User(Convert.ToInt64(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), Image.FromStream(memoryStream), dr[5].ToString(), Convert.ToBoolean(dr[6]));// = user found
-                KeyValuePair<string, User> contact = new KeyValuePair<string, User>(phoneNumber_txt.textBox1.Text, contactUserFound);
-                MainForm.mainUser.Contacts.Append(contact);
+                con2 = new MySqlConnection(MainForm.dbConnStr);
+                con2.Open();
+
+                cmd.Connection = con2;
+                User contactUserFound = new User(Convert.ToInt64(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), Image.FromStream(ms), dr[5].ToString(), Convert.ToBoolean(dr[6]));// = user found
+                //KeyValuePair<string, User> contact = new KeyValuePair<string, User>;
+                MainForm.mainUser.Contacts.Add(phoneNumber_txt.textBox1.Text, contactUserFound);
                 //db set main user  new contact list
                 // MessageBox.Show("Contact Added Successfully.");
                 //update DB
@@ -54,10 +60,14 @@ namespace ChatApplication.Contacts
                 if (r != -1)
                 {
                     MessageBox.Show("Contact added successfully");
+
+                    ContactList CL = new ContactList();
+                    CL.populateList(MainForm.mainUser.Contacts);
+                    CL.Show();
+                    this.Close();
                 }
 
-                //refresh parent form
-                this.Close();
+                
             }
             else
             {
@@ -70,7 +80,10 @@ namespace ChatApplication.Contacts
         }
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            ContactList CL = new ContactList();
+            CL.Show();
             this.Close();
+
 
         }
 
