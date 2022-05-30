@@ -89,7 +89,6 @@ namespace ChatApplication
                 profilePicture.BorderColor = Color.Silver;
                 profilePicture.BorderColor2 = Color.DarkGray;
             }
-
         }
 
         private void datepublished_Click(object sender, EventArgs e)

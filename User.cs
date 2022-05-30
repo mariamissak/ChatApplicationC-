@@ -18,8 +18,8 @@ namespace ChatApplication
             get { return userId; }
             set { userId = value; }
         }
-        private String mobileNumber;
 
+        private String mobileNumber;
         public String MobileNumber
         {
             get { return mobileNumber; }
@@ -27,44 +27,47 @@ namespace ChatApplication
         }
 
         private String password;
-
         public String Password
         {
             get { return password; }
             set { password = value; }
         }
-        private String firstName;
 
+        private String firstName;
         public String FirstName
         {
             get { return firstName; }
             set { firstName = value; }
         }
-        private String lastName;
 
+        private String lastName;
         public String LastName
         {
             get { return lastName; }
             set { lastName = value; }
         }
+
         private StoriesQueue<Story> userStories;
         public StoriesQueue<Story> UserStories
         {
             get { return userStories; }
             set { userStories = value; }
         }
+
         private UserProfileDescription userDescription;
         public UserProfileDescription UserDescription
         {
             get { return userDescription; }
             set { userDescription = value; }
         }
+
         private Dictionary<string, User> contacts; //pointer to user or userId
         public Dictionary<string, User> Contacts
         {
             get { return contacts; }
             set { contacts = value; }
         }
+
         private ChatRoomsList chatRoomsList;
         public ChatRoomsList ChatRoomsList
         {
@@ -131,6 +134,5 @@ namespace ChatApplication
         {
             chatRoomsList.Append(chatroom);
         }
-
     }
 }

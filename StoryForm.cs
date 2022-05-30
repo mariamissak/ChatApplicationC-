@@ -14,26 +14,13 @@ using MySql.Data.Types;
 
 namespace ChatApplication
 {
-/* foreach(var contact in user1.contacts.values)
-{
- sql select * from stories where userid=:userid
-  * add parameter userid= contact.userid
-  * while (dr.read){
-  * create new story object() with the output parameters that we retrieved
-  * add story object to contact.stories queue
-  * }
- 
-}
-*/
-public partial class StoryForm :UserControl
+    public partial class StoryForm :UserControl
     {
         public User user1;
         StoriesQueue<Story> tempStories= new StoriesQueue<Story>();
 
         public StoryForm()
         {
-            
-
             InitializeComponent();
         }
 

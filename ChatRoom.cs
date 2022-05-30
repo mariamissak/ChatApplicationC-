@@ -10,17 +10,42 @@ namespace ChatApplication
     public class ChatRoom
     {
         MySqlConnection con;
+
         private long _chatRoomId;
-        public long chatRoomId { get { return _chatRoomId; } set { _chatRoomId = value; } }
+        public long chatRoomId 
+        { 
+            get { return _chatRoomId; } 
+            set { _chatRoomId = value; } 
+        }
+
         private Boolean isPrivate; //one to one chat or group chat
-        public Boolean IsPrivate { get { return isPrivate; } set { isPrivate = value; } }
+        public Boolean IsPrivate 
+        { 
+            get { return isPrivate; } 
+            set { isPrivate = value; } 
+        }
+
         private DateTime lastDate;
-        public DateTime LastDate { get { return lastDate; } set { lastDate = value; } }
+        public DateTime LastDate 
+        { 
+            get { return lastDate; } 
+            set { lastDate = value; } 
+        }
+
         private ChatRoomInfo chatRoomInfo;
-        public ChatRoomInfo ChatRoomInfo { get { return chatRoomInfo; } set { chatRoomInfo = value; } }
+        public ChatRoomInfo ChatRoomInfo 
+        { 
+            get { return chatRoomInfo; } 
+            set { chatRoomInfo = value; } 
+        }
+
         private MessageStack<Message> messagestack;
-        public MessageStack<Message> MessageStack { get { return messagestack; } set { messagestack = value; } }
-        
+        public MessageStack<Message> MessageStack 
+        { 
+            get { return messagestack; } 
+            set { messagestack = value; } 
+        }
+                
         public ChatRoom(Boolean isPrivate, List<User> listOfUsers)
         {
 
@@ -51,6 +76,7 @@ namespace ChatApplication
             dr.Close();
             con.Dispose();
         }
+
         public ChatRoom(long _chatRoomId, Boolean isPrivate, List<User> listOfUsers, DateTime lastDate)
         {
 
@@ -60,6 +86,5 @@ namespace ChatApplication
             chatRoomInfo = new ChatRoomInfo(listOfUsers, chatRoomId);
             messagestack = new MessageStack<Message>();
         }
-
     }
 }

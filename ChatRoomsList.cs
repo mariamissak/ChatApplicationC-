@@ -18,15 +18,13 @@ namespace ChatApplication
             value = val;
             next = null;
         }
-
     }
+
     public class ChatRoomsList
     {
         private int count;
         public Node head;
         private Node tail;
-
-
 
         public ChatRoomsList()
         {
@@ -34,13 +32,10 @@ namespace ChatApplication
             count = 0;
         }
 
-
         public int Length()
         {
             return count;
         }
-
-
 
         public void Append(ChatRoom val)
         {
@@ -54,7 +49,6 @@ namespace ChatApplication
             }
             count++;
         }
-
 
         public ChatRoom At(int pos)
         {
@@ -123,6 +117,7 @@ namespace ChatApplication
             }
             InsertAt(0, x);
         }
+
         public int findPrivateChatroom(long userId)
         {
             ChatRoomInfo tempinfo;

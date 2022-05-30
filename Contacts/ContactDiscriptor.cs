@@ -80,6 +80,19 @@ namespace ChatApplication.Contacts
             //move to storyViewform
         }
 
+
+        public void createPublicChatRoom(ChatRoom chatroom, User contact)
+        {
+            //MainForm.mainUser.ChatRoomsList
+            //List<User> users = new List<User>();
+            //users.Insert(0,MainForm.mainUser);
+
+            // insert selected users:
+
+            //ChatRoom newChatRoom = new ChatRoom(true, users);
+            //MainForm.mainUser.ChatRoomsList.InsertAt(0,newChatRoom);
+        }
+
         private void chatButton_Click(object sender, EventArgs e)
         {
             int chatroomIndex = MainForm.mainUser.ChatRoomsList.findPrivateChatroom(_contact.UserId);
@@ -145,8 +158,10 @@ namespace ChatApplication.Contacts
 
                 con.Dispose();
 
+                MessageBox.Show("ChatRoom Created");
             } else {
                 newChatRoom = MainForm.mainUser.ChatRoomsList.At(chatroomIndex);
+                MessageBox.Show("ChatRoom Already Exists");
             }
 
 
@@ -154,8 +169,12 @@ namespace ChatApplication.Contacts
 
             //goes to new form
             //for when we open new chatroom form
-            ChatRoom contactChatroom = MainForm.mainUser.ChatRoomsList.At(chatroomIndex);
-            ViewChatRooms vCR = new ViewChatRooms();
+           
+            ViewChatRooms VCR = new ViewChatRooms();
+            VCR.Show();
+            
+            ContactList Cl = (ContactList)ParentForm;
+            Cl.Close();
         }
     }
 }

@@ -22,15 +22,15 @@ namespace ChatApplication
         MySqlConnection con3;
         MySqlConnection con4;
         MySqlConnection con5;
+
         public ViewChatRooms()
         {
             InitializeComponent();
         }
+
         private void ViewChatRooms_Load(object sender, EventArgs e)
         {
-           
             populateList();
-            
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -39,32 +39,33 @@ namespace ChatApplication
             //mf.Show();
             //this.Hide();
             //MainForm.mainUser = null;
-
         }
 
         public void populateMessages( ChatRoom chatRoom, string chatRoomTitle)
         {
-
             flowLayoutPanel2.Controls.Clear();
 
-
             label1.Text = chatRoomTitle;
+            if  (chatRoom.MessageStack == null) 
+                chatRoom.MessageStack = new MessageStack<Message>();
 
-            Message[] msgs = chatRoom.MessageStack.ViewAll();
-            for (int i = 0; i < msgs.Length; i++)
+            if (chatRoom.MessageStack.ViewAll() != null)
             {
-                if (msgs[i] == null)
-                    continue;
-                //Console.WriteLine(msgs[0].Text);
-                MessageItem messageItem = new MessageItem();
-                messageItem.Message = msgs[i];
-                messageItem.initializeMessageItem();
-                //messagesList.Items.Add(msgs[i].MessageStatus.DateTime + " " + userNames[msgs[i].UserId] + ": " + msgs[i].Text + " " + msgs[i].MessageStatus.IsSeen);
-                flowLayoutPanel2.Controls.Add(messageItem);
+                Message[] msgs = chatRoom.MessageStack.ViewAll();
+                for (int i = 0; i < chatRoom.MessageStack.Length() + 1; i++)
+                {
+                    if (msgs[i] == null)
+                        continue;
+                    //Console.WriteLine(msgs[0].Text);
+                    MessageItem messageItem = new MessageItem();
+                    messageItem.Message = msgs[i];
+                    messageItem.initializeMessageItem();
+                    //messagesList.Items.Add(msgs[i].MessageStatus.DateTime + " " + userNames[msgs[i].UserId] + ": " + msgs[i].Text + " " + msgs[i].MessageStatus.IsSeen);
+                    flowLayoutPanel2.Controls.Add(messageItem);
+                }
             }
         }
 
-        
         public void populateList()
         {
             if (MainForm.mainUser.ChatRoomsList != null)
@@ -76,17 +77,23 @@ namespace ChatApplication
                 {
                     string parts = "You";
                     listItems[i] = new ListItem();
+                    listItems[i].ProfileImage = ProfImage.userprofilepicturedefault;
                     for (int j = 0; j < tmp.value.ChatRoomInfo.ListUsers.Count(); j++)
                     {
-                        if (tmp.value.ChatRoomInfo.ListUsers.Count() > 2) listItems[i].ProfileImage = ProfImage.userprofilepicturedefault;
-
                         if (MainForm.mainUser.UserId != tmp.value.ChatRoomInfo.ListUsers[j].UserId)
                         {
-                            listItems[i].ProfileImage = tmp.value.ChatRoomInfo.ListUsers[j].UserDescription.ProfilePicture;
+                            if (MainForm.checkMutualContact(tmp.value.ChatRoomInfo.ListUsers[j]))
+                            {
+                                listItems[i].ProfileImage = tmp.value.ChatRoomInfo.ListUsers[j].UserDescription.ProfilePicture;
+                            }
                             parts += ", " + tmp.value.ChatRoomInfo.ListUsers[j].FirstName;
                         }
-
+                        if (!tmp.value.IsPrivate)
+                        {
+                            listItems[i].ProfileImage = ProfImage.userprofilepicturedefault;
+                        }
                     }
+
                     cur = tmp.value;
                     listItems[i].curChatRoom = tmp.value;
                     listItems[i].ChatRoomPos = i;
@@ -101,14 +108,9 @@ namespace ChatApplication
 
                     if (tmp.value.LastDate.CompareTo( DateTime.Parse("01-01-2022")) > 0) 
                         listItems[i].LastDate = tmp.value.LastDate;
-                   
 
                     listItems[i].ChatRoomId = tmp.value.chatRoomId;
                     listItems[i].ChatRoomTitle = parts;
-                    //if (!tmp.value.MessageStack.Empty())
-                    //{
-                    //    listItems[i].LastMessage = tmp.value.MessageStack.Top().Text;
-                    //}
 
                     flowLayoutPanel1.Controls.Add(listItems[i]);
                     tmp = tmp.next;
@@ -116,6 +118,7 @@ namespace ChatApplication
                 }
             }
         }
+
         public void updateStatus(ChatRoom ch)
         {
             
@@ -127,7 +130,7 @@ namespace ChatApplication
                     bool seen = true;
                     foreach (KeyValuePair<long, DateTime> td in ch.ChatRoomInfo.LastSeen)
                     {
-                        // do something with entry.Value or entry.Key
+                      if  (td.Key == MainForm.mainUser.UserId) continue;
                         if(msgs[i] != null)
                         {
                             if (msgs[i].MessageStatus.DateTime >= td.Value)
@@ -136,24 +139,30 @@ namespace ChatApplication
                                 break;
                             }
                         }
-                        
-
                     }
                     if (msgs[i] != null)
-                        if (seen) msgs[i].MessageStatus.IsSeen = true;
-                    //gui missing 
+                    {
+                        if (seen)
+                        {
+                            msgs[i].MessageStatus.IsSeen = true;
+                            con = new MySqlConnection(MainForm.dbConnStr);
+                            con.Open();
 
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.Connection = con;
+                            cmd.CommandText = "update messages set IsSeen = 1 where messageid = @msgid";
+                            cmd.Parameters.AddWithValue("@msgid", msgs[i].MessageId);
+                            cmd.ExecuteNonQuery();
+
+                            con.Dispose();
+                        }
+                    }
                 }
             }
         }
 
-
-
-
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            
-
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
@@ -163,10 +172,12 @@ namespace ChatApplication
             //Load stories into stories queue for users who have stories
             foreach (User sContact in MainForm.mainUser.Contacts.Values)
             {
-                getStories(sContact, conn);
+                if (MainForm.checkMutualContact(sContact))
+                {
+                    getStories(sContact, conn);
+                }
             }
             getStories(MainForm.mainUser, conn);
-
 
             ContactsStories cs = new ContactsStories();
             cs.Show();
@@ -321,13 +332,6 @@ namespace ChatApplication
 
         private void send_icon_btn_Click(object sender, EventArgs e)
         {
-            //string message_text = String.Format(@"{0}  - {1}
-            //               {2}
-            //               -----------------------------------", "Me:", message_box.textBox1.Text, DateTime.Now);
-            ////string message_text = @"farah
-            //                      hello";
-            // string message_text =message_box.textBox1.Text;
-
             string message_text = message_box.textBox1.Text;
 
             //messagesList.View = View.Details;
@@ -355,7 +359,6 @@ namespace ChatApplication
 
             cmd.ExecuteNonQuery();
 
-    
             cmd.CommandText = "update chatrooms set lastDate  =  @lastDate where chatroomid = @chid;";
             cmd.Parameters.AddWithValue("@lastDate", message.MessageStatus.DateTime);
             cmd.Parameters.AddWithValue("@chid", cur.chatRoomId);
@@ -363,9 +366,30 @@ namespace ChatApplication
             cmd.ExecuteNonQuery();
 
             con.Dispose();
-           listItemSelected.sendToTop();
+            listItemSelected.sendToTop();
             populateList();
         }
-        
+
+        private void Undo_button_Click(object sender, EventArgs e)
+        {
+            int index = cur.MessageStack.LastSentIndex();
+
+            if (index > -1)
+            {
+                long undonMId = cur.MessageStack.Undo(index);
+                con = new MySqlConnection(MainForm.dbConnStr);
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "delete from messages where messageid = @undonMId";
+                cmd.Parameters.AddWithValue("@undonMId", undonMId);
+
+                cmd.ExecuteNonQuery();
+
+                con.Dispose();
+
+                flowLayoutPanel2.Controls.RemoveAt(index);
+            }
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace ChatApplication
             if (!currentuser.UserStories.Empty())
             {
                 storyContact1.SContact = currentuser;
-                storyContact1.TimePublished =currentuser.UserStories.Back().PublishedStoryTime.ToString();
+                storyContact1.TimePublished = currentuser.UserStories.Back().PublishedStoryTime.ToString();
                 storyContact1.Icon = currentuser.UserDescription.ProfilePicture;
 
                 storyContact1.SContactName = "My Story";
@@ -51,19 +51,19 @@ namespace ChatApplication
                 if (!contact.UserStories.Empty())
                 {
                     storyContacts[i] = new StoryContact();
-                    
+
                     storyContacts[i].SContact = contact;
                     storyContacts[i].SContactName = contact.FirstName + " " + contact.LastName;
                     storyContacts[i].TimePublished = contact.UserStories.Back().PublishedStoryTime.ToString();
                     storyContacts[i].Icon = contact.UserDescription.ProfilePicture;
-                    
+
                     flowLayoutPanel1.Controls.Add(storyContacts[i]);
                     i++;
                 }
             }
             //dr.Close();
             //conn.Close();
-            
+
         }
 
         private void ContactsStories_Load(object sender, EventArgs e)
@@ -76,11 +76,11 @@ namespace ChatApplication
         {
             storyContact1.SContactName = "My Story";
         }
-        public void showStories(User sContact)
+        public void showStories(User sContact )
         {
             //send user clicked on to story form to show their stories
             
-            if (sContact != null )
+            if (sContact != null)
             {
                 StoryForm s = new StoryForm();
                 s.user1 = sContact;
@@ -91,26 +91,26 @@ namespace ChatApplication
                 pictureBox1.SendToBack();
                 s.BringToFront();
             }
-            
+
         }
 
         private void roundedButton1_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter="jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.*";
+                dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.*";
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    
+
                     pictureBox1.ImageLocation = dialog.FileName;
 
 
                 }
 
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("An Error ocurred", "Error", MessageBoxButtons.OK);
             }
@@ -118,46 +118,52 @@ namespace ChatApplication
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void roundedButton2_Click(object sender, EventArgs e)
         {
-            
-            MySqlConnection conn = new MySqlConnection(MainForm.dbConnStr);
-            conn.Open();
-            MemoryStream ms = new MemoryStream();
-            pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
-            byte[] img = ms.ToArray();
-            Story newstory = new Story(MainForm.mainUser.UserId, pictureBox1.Image, textBoxg1.Texts);
-            MainForm.mainUser.UserStories.Enqueue(newstory);
 
-
-            string insertquery = "INSERT INTO stories(storyID,userID,timepublished,photo,storytext) VALUES(@storyId,@userId,sysdate(),@img,@storyText);";
-            MySqlCommand cmd = new MySqlCommand(insertquery, conn);
-            cmd.Parameters.Add("@storyId", MySqlDbType.Int32);
-            cmd.Parameters.Add("@userId", MySqlDbType.Int32);
-            cmd.Parameters.Add("@img", MySqlDbType.Blob);
-            cmd.Parameters.Add("@storyText", MySqlDbType.VarChar);
-            
-
-            cmd.Parameters["@img"].Value = img;
-            cmd.Parameters["@storyText"].Value = textBoxg1.Texts;
-            cmd.Parameters["@storyId"].Value = newstory.StoryId;
-            cmd.Parameters["@userId"].Value = MainForm.mainUser.UserId;
-
-            if (cmd.ExecuteNonQuery() == 1)
+            if (pictureBox1.Image == null)
             {
-                MessageBox.Show("Story added");
+                MessageBox.Show("Please upload an image first.");
+            }
+            else
+            {
+                MySqlConnection conn = new MySqlConnection(MainForm.dbConnStr);
+                conn.Open();
+                MemoryStream ms = new MemoryStream();
+                pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
+                byte[] img = ms.ToArray();
+                Story newstory = new Story(MainForm.mainUser.UserId, pictureBox1.Image, textBoxg1.Texts);
+                MainForm.mainUser.UserStories.Enqueue(newstory);
+
+
+                string insertquery = "INSERT INTO stories(storyID,userID,timepublished,photo,storytext) VALUES(@storyId,@userId,sysdate(),@img,@storyText);";
+                MySqlCommand cmd = new MySqlCommand(insertquery, conn);
+                cmd.Parameters.Add("@storyId", MySqlDbType.Int32);
+                cmd.Parameters.Add("@userId", MySqlDbType.Int32);
+                cmd.Parameters.Add("@img", MySqlDbType.Blob);
+                cmd.Parameters.Add("@storyText", MySqlDbType.VarChar);
+
+
+                cmd.Parameters["@img"].Value = img;
+                cmd.Parameters["@storyText"].Value = textBoxg1.Texts;
+                cmd.Parameters["@storyId"].Value = newstory.StoryId;
+                cmd.Parameters["@userId"].Value = MainForm.mainUser.UserId;
+
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Story added");
+                }
             }
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            ViewChatRooms v = new ViewChatRooms();
-            v.Show();
-            this.Hide();
+            ViewChatRooms VCR = new ViewChatRooms();
+            VCR.Show();
+            this.Close();
         }
     }
 }
-

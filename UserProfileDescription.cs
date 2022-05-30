@@ -10,28 +10,27 @@ namespace ChatApplication
     public class UserProfileDescription
     {
         private long userId;
-
         public long UserId
         {
             get { return userId; }
             set { userId = value; }
         }
-        private Image profilePicture;
 
+        private Image profilePicture;
         public Image ProfilePicture
         {
             get { return profilePicture; }
             set { profilePicture = value; }
         }
-        private String aboutDescription;
 
+        private String aboutDescription;
         public String AboutDescription
         {
             get { return aboutDescription; }
             set { aboutDescription = value; }
         }
-        private Boolean isVisible;
 
+        private Boolean isVisible;
         public Boolean IsVisible
         {
             get { return isVisible; }
@@ -53,8 +52,5 @@ namespace ChatApplication
             this.AboutDescription = aboutDescription;
             this.IsVisible = isVisible;
         }
-
-
-
     }
 }

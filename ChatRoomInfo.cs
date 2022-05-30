@@ -10,14 +10,27 @@ namespace ChatApplication
     public class ChatRoomInfo
     {
         MySqlConnection con;
+
         private long chatRoomId;
-        public long ChatRoomId { get { return chatRoomId; } set { chatRoomId = value; } }
-        private Dictionary<long , DateTime> lastSeen ;
-        public Dictionary<long, DateTime> LastSeen { get { return lastSeen; } set { lastSeen = value; } }
+        public long ChatRoomId 
+        { 
+            get { return chatRoomId; } 
+            set { chatRoomId = value; } 
+        }
+
+        private Dictionary<long , DateTime> lastSeen;
+        public Dictionary<long, DateTime> LastSeen 
+        { 
+            get { return lastSeen; } 
+            set { lastSeen = value; } 
+        }
 
         private List<User> listOfUsers;
-        public List<User> ListUsers { get { return listOfUsers; } set { listOfUsers = value; } }
-        //2 in case of one to one chat and 2 or more in case of group chat
+        public List<User> ListUsers 
+        { 
+            get { return listOfUsers; } 
+            set { listOfUsers = value; } 
+        }
 
         public ChatRoomInfo(List<User> listOfUsers, long chatRoomId)
         {
@@ -29,6 +42,7 @@ namespace ChatApplication
                 lastSeen.Add(listOfUsers[i].UserId, DateTime.Now);
             }
         }
+
         public void updateLastSeen(long userId)
         {
             lastSeen[userId] = DateTime.Now;
@@ -46,6 +60,5 @@ namespace ChatApplication
 
             con.Dispose();
         }
-        
     }
 }
