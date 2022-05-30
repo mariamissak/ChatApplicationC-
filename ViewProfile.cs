@@ -83,12 +83,8 @@ namespace ChatApplication
                 dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.*";
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-
                     imagebox.ImageLocation = dialog.FileName;
-
-
                 }
-
             }
             catch (Exception)
             {

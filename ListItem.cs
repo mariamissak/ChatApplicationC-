@@ -113,7 +113,7 @@ namespace ChatApplication
 
                 pForm.cur = chatRoom;
                 MainForm.mainUser.ChatRoomsList.At(chatRoomPos).ChatRoomInfo.updateLastSeen(MainForm.mainUser.UserId);
-                //pForm.updateStatus(chatRoom);
+                pForm.updateStatus(chatRoom);
                  ViewChatRooms.listItemSelected = this;
      
         }

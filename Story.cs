@@ -1,5 +1,4 @@
-﻿//STORY
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +11,42 @@ namespace ChatApplication
     public class Story
     {
         MySqlConnection con;
+
         private long userId;
+        public long UserId 
+        { 
+            get { return userId; } 
+            set { userId = value; } 
+        }
+
         private long storyId;
-        public long UserId { get { return userId; } set { userId = value; } }
-        public long StoryId{ get { return storyId; } set { storyId = value; } }
+        public long StoryId
+        { 
+            get { return storyId; } 
+            set { storyId = value; } 
+        }
+
         private DateTime publishedStoryTime;
-        public DateTime PublishedStoryTime { get { return publishedStoryTime; } set { publishedStoryTime = value; } }
+        public DateTime PublishedStoryTime 
+        { 
+            get { return publishedStoryTime; } 
+            set { publishedStoryTime = value; } 
+        }
+
         private Image photo;
-        public Image Photo { get { return photo; } set { photo = value; } }
+        public Image Photo 
+        { 
+            get { return photo; } 
+            set { photo = value; } 
+        }
+
         private string storyText;
-        public string StoryText { get { return storyText; } set { storyText=value; } }
+        public string StoryText 
+        { 
+            get { return storyText; } 
+            set { storyText=value; } 
+        }
+
         //Each user story should be disappeared to all his contacts after 24 hours from the time it was published.
         public Story(long userId, string storyText)
         {

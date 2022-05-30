@@ -4,75 +4,105 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Windows.Forms;
+
 namespace ChatApplication
 {
     public class MessageStack<T>
     {
-        private int count;
+        private int top;
         private int size;
-        private T[] arr;
+        private Message[] arr;
 
-        public MessageStack()
-        {
+        public MessageStack () {
+            top = -1;
             size = 10;
-            count = 0;
-            arr = new T[size];
+            arr =  new Message[size];
         }
 
         public int Length()
         {
-            return count;
+            return top+1;
         }
 
-        public void Push(T val)
+        public void Push(Message val)
         {
-            if (count == size)
+            if (top == size - 1)
                 Expand();
-            arr[count] = val;
-            count++;
+            top++;
+            arr[top] = val;
         }
 
         public void Pop()
         {
             Debug.Assert(!Empty());
-            count--;
+            top--;
         }
 
-        public T Top()
+        public Message Top()
         {
             Debug.Assert(!Empty());
-            return arr[count - 1];
+            return arr[top];
         }
 
         public Boolean Empty()
         {
-            return (count == 0);
+            return (top == -1);
         }
 
         public void Expand()
         {
             size += 5;
-            T[] tmp = new T[size];
-            for (int i = 0; i < count; i++)
+            Message[] tmp = new Message[size];
+            for (int i = 0; i <= top; i++)
                 tmp[i] = arr[i];
 
             arr = tmp;
         }
 
-       
-        public void Undo()
-        {
-            for (int i = count - 1; i < Length(); i++)
-            {
 
+        public int LastSentIndex()
+        {
+            int temp = -1;
+            for (int i = top ; i > -1; i--)
+            {
+                if (arr[i] != null && arr[i].UserId == MainForm.mainUser.UserId)
+                {
+                    temp = i;
+                    break;
+
+                }
             }
+            
+            return temp;
         }
-        //Message STack add this function
-        public T[] ViewAll()
+       
+        public long Undo(int index)
+        {
+            int temp = index;
+            long mId = -1;
+
+            if (temp != -1)
+            {
+                mId = arr[index].MessageId;
+                for (int j = temp; j <= top; j++)
+                {
+                    if (j!=top)
+                    {
+                        arr[j] = arr[j + 1];
+                    }
+                    else Pop();
+                }
+                
+            }
+            
+
+            return mId;
+        }
+
+        public Message[] ViewAll()
         {
             return arr;
-        }
-
-       
+        } 
     }
 }

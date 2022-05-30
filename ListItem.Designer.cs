@@ -40,7 +40,7 @@ namespace ChatApplication
             // chatRoomName_label
             // 
             this.chatRoomName_label.BackColor = System.Drawing.Color.Transparent;
-            this.chatRoomName_label.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chatRoomName_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chatRoomName_label.Location = new System.Drawing.Point(121, 20);
             this.chatRoomName_label.Name = "chatRoomName_label";
             this.chatRoomName_label.Size = new System.Drawing.Size(216, 37);

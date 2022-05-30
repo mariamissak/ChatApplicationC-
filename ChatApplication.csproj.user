@@ -25,6 +25,9 @@
     <Compile Update="Contacts\ContactList.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Contacts\GroupChatCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CreateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
