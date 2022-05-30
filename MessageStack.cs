@@ -8,8 +8,8 @@ namespace ChatApplication
 {
     public class MessageStack<T>
     {
-        private int count { get; set; }
-        private int size { get; set; }
+        private int count;
+        private int size;
         private T[] arr;
 
         public MessageStack()
@@ -46,7 +46,7 @@ namespace ChatApplication
 
         public Boolean Empty()
         {
-            return (size == 0);
+            return (count == 0);
         }
 
         public void Expand()
@@ -59,15 +59,7 @@ namespace ChatApplication
             arr = tmp;
         }
 
-        public void ViewAll()
-        {
-            for (int i = 0; i < count; i++)
-            {
-                Console.WriteLine(arr[i]);
-
-            }
-        }
-
+       
         public void Undo()
         {
             for (int i = count - 1; i < Length(); i++)
@@ -75,7 +67,12 @@ namespace ChatApplication
 
             }
         }
+        //Message STack add this function
+        public T[] ViewAll()
+        {
+            return arr;
+        }
 
-
+       
     }
 }

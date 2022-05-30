@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj": {}
+    "C:\\Users\\Mariam\\Desktop\\DS\\ChatApplicationC--Farah\\ChatApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj": {
+    "C:\\Users\\Mariam\\Desktop\\DS\\ChatApplicationC--Farah\\ChatApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Mariam\\Desktop\\DS\\ChatApplicationC--Farah\\ChatApplication.csproj",
         "projectName": "ChatApplication",
-        "projectPath": "C:\\Users\\farah\\source\\repos\\ChatApplication\\ChatApplication.csproj",
-        "packagesPath": "C:\\Users\\farah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\farah\\source\\repos\\ChatApplication\\obj\\",
+        "projectPath": "C:\\Users\\Mariam\\Desktop\\DS\\ChatApplicationC--Farah\\ChatApplication.csproj",
+        "packagesPath": "C:\\Users\\Mariam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mariam\\Desktop\\DS\\ChatApplicationC--Farah\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\farah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mariam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +44,10 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "FontAwesome.Sharp": {
+              "target": "Package",
+              "version": "[5.15.4, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.29, )"
@@ -63,7 +71,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

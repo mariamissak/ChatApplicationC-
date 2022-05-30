@@ -22,7 +22,7 @@ namespace ChatApplication.Contacts
         private void ContactList_Load(object sender, EventArgs e)
         {
             Dictionary<string, User> myDict = new Dictionary<string, User>();
-            User user = new User("1", "2", "omar", "1", "ccd91d6b0cdc49189602b4fef80a8c8c.jpg", "https://i.pinimg.com/236x/cc/d9/1d/", "7", "8", true);
+            /*User user = new User("1", "2", "omar", "1", "ccd91d6b0cdc49189602b4fef80a8c8c.jpg", "https://i.pinimg.com/236x/cc/d9/1d/", "7", "8", true);
             User user2 = new User("1", "2", "omar", "2", "Ware_Amanda_The+Cold+Wind+of+Death_RGB+copy.jpeg", "https://images.squarespace-cdn.com/content/v1/5029c68d84ae261e07fb86ec/1634494946122-K5547RVNTBHBDCA0P2D9/", "7", "8", true);
             User user3 = new User("1", "2", "omar", "3", "Maynard_Alyssa_LadyMacbeth_websq.jpg", "https://images.squarespace-cdn.com/content/v1/5029c68d84ae261e07fb86ec/1635459831746-ZHG21QXD60YUKKJWR14R/", "7", "8", true);
             User user4 = new User("1", "2", "omar", "4", "ShinYeonMoon_JeoSeung-Saja_Websize.jpeg", "https://images.squarespace-cdn.com/content/v1/5029c68d84ae261e07fb86ec/1635459941394-ARGV455ZG29GHGJHZI41/", "7", "8", true);
@@ -31,8 +31,8 @@ namespace ChatApplication.Contacts
             myDict.Add("3", user3);
             myDict.Add("4", user4);
             myDict.Add("5", user);
-            myDict.Add("6", user);
-
+            myDict.Add("6", user);*/
+            myDict = MainForm.mainUser.Contacts;
             populateList(myDict);
 
             populateContactInfo(selectedUser);
@@ -65,9 +65,29 @@ namespace ChatApplication.Contacts
 
         private void backButton_Click(object sender, EventArgs e)
         {
+            //ViewChatRooms cForm = new ViewChatRooms();
+            //cForm.Show();
+            //this.Hide();
+        }
+
+        private void addContactButton_Click(object sender, EventArgs e)
+        {
+            //AddNewContactForm ancf = new AddNewContactForm();
+            //ancf.Show();
+        }
+
+        private void add_contact_btn_Click(object sender, EventArgs e)
+        {
+            AddNewContactForm ancf = new AddNewContactForm();
+            ancf.Show();
+        }
+
+        private void chatrooms_btn_Click(object sender, EventArgs e)
+        {
             ViewChatRooms cForm = new ViewChatRooms();
             cForm.Show();
             this.Hide();
         }
+
     }
 }

@@ -41,14 +41,17 @@ namespace ChatApplication
             this.lname_label = new System.Windows.Forms.Label();
             this.terms_chk = new System.Windows.Forms.CheckBox();
             this.conditions = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(329, 27);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.label1.Location = new System.Drawing.Point(257, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 25);
+            this.label1.Size = new System.Drawing.Size(321, 54);
             this.label1.TabIndex = 11;
             this.label1.Text = "Create Account";
             // 
@@ -56,11 +59,12 @@ namespace ChatApplication
             // 
             this.next_btn.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.next_btn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.next_btn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.next_btn.BorderRadius = 20;
-            this.next_btn.BorderSize = 0;
+            this.next_btn.BorderColor = System.Drawing.Color.White;
+            this.next_btn.BorderRadius = 30;
+            this.next_btn.BorderSize = 2;
             this.next_btn.FlatAppearance.BorderSize = 0;
             this.next_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.next_btn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.next_btn.ForeColor = System.Drawing.Color.White;
             this.next_btn.Location = new System.Drawing.Point(339, 378);
             this.next_btn.Name = "next_btn";
@@ -74,18 +78,20 @@ namespace ChatApplication
             // password_label
             // 
             this.password_label.AutoSize = true;
+            this.password_label.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.password_label.Location = new System.Drawing.Point(133, 292);
             this.password_label.Name = "password_label";
-            this.password_label.Size = new System.Drawing.Size(87, 25);
+            this.password_label.Size = new System.Drawing.Size(92, 25);
             this.password_label.TabIndex = 9;
             this.password_label.Text = "Password";
             // 
             // phoneNumber_label
             // 
             this.phoneNumber_label.AutoSize = true;
+            this.phoneNumber_label.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.phoneNumber_label.Location = new System.Drawing.Point(88, 233);
             this.phoneNumber_label.Name = "phoneNumber_label";
-            this.phoneNumber_label.Size = new System.Drawing.Size(132, 25);
+            this.phoneNumber_label.Size = new System.Drawing.Size(140, 25);
             this.phoneNumber_label.TabIndex = 8;
             this.phoneNumber_label.Text = "Phone Number";
             // 
@@ -120,7 +126,7 @@ namespace ChatApplication
             this.phoneNumber_txt.BorderSize = 2;
             this.phoneNumber_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.phoneNumber_txt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.phoneNumber_txt.Location = new System.Drawing.Point(227, 219);
+            this.phoneNumber_txt.Location = new System.Drawing.Point(228, 219);
             this.phoneNumber_txt.Margin = new System.Windows.Forms.Padding(4);
             this.phoneNumber_txt.Multiline = false;
             this.phoneNumber_txt.Name = "phoneNumber_txt";
@@ -180,18 +186,20 @@ namespace ChatApplication
             // fname_label
             // 
             this.fname_label.AutoSize = true;
+            this.fname_label.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.fname_label.Location = new System.Drawing.Point(110, 113);
             this.fname_label.Name = "fname_label";
-            this.fname_label.Size = new System.Drawing.Size(97, 25);
+            this.fname_label.Size = new System.Drawing.Size(103, 25);
             this.fname_label.TabIndex = 14;
             this.fname_label.Text = "First Name";
             // 
             // lname_label
             // 
             this.lname_label.AutoSize = true;
+            this.lname_label.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lname_label.Location = new System.Drawing.Point(110, 174);
             this.lname_label.Name = "lname_label";
-            this.lname_label.Size = new System.Drawing.Size(95, 25);
+            this.lname_label.Size = new System.Drawing.Size(101, 25);
             this.lname_label.TabIndex = 15;
             this.lname_label.Text = "Last Name";
             // 
@@ -216,11 +224,27 @@ namespace ChatApplication
             this.conditions.TabIndex = 17;
             this.conditions.Text = "Terms and Conditions";
             // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
+            this.iconButton1.IconColor = System.Drawing.Color.PaleVioletRed;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton1.IconSize = 60;
+            this.iconButton1.Location = new System.Drawing.Point(1, 2);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(71, 74);
+            this.iconButton1.TabIndex = 22;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
             // CreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.conditions);
             this.Controls.Add(this.terms_chk);
             this.Controls.Add(this.lname_label);
@@ -255,5 +279,6 @@ namespace ChatApplication
         private System.Windows.Forms.Label lname_label;
         private System.Windows.Forms.CheckBox terms_chk;
         private System.Windows.Forms.Label conditions;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

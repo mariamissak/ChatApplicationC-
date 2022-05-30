@@ -14,9 +14,7 @@ namespace ChatApplication
     public partial class CreateAccount : Form
     {
         MySqlConnection con;
-
-        string c = "server=localhost;database=sakila;uid=root;pwd=root;";
-
+         
         public static string crmobileNumber;
         public static string crpassword;
         public static string crfirstName;
@@ -42,7 +40,7 @@ namespace ChatApplication
         private void next_btn_Click(object sender, EventArgs e)
         {
 
-            con = new MySqlConnection(c);
+            con = new MySqlConnection(MainForm.dbConnStr);
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
@@ -71,6 +69,13 @@ namespace ChatApplication
             dr.Close();
             con.Dispose();
             
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            MainForm main_form = new MainForm();
+            main_form.Show();
+            this.Hide();
         }
     }
 }

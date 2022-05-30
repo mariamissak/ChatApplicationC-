@@ -34,13 +34,14 @@ namespace ChatApplication
             count = 0;
         }
 
-        
+
         public int Length()
         {
             return count;
         }
 
-        
+
+
         public void Append(ChatRoom val)
         {
             Node newNode = new Node(val);
@@ -54,7 +55,7 @@ namespace ChatApplication
             count++;
         }
 
-        
+
         public ChatRoom At(int pos)
         {
             Debug.Assert(pos >= 0 && pos < count);
@@ -66,7 +67,7 @@ namespace ChatApplication
 
         public void InsertAt(int pos, ChatRoom val)
         {
-            Debug.Assert(pos >= 0 && pos < count);
+            Debug.Assert(pos >= 0 && pos <= count);
             Node tmp = head;
             Node newNode = new Node(val);
             if (pos == 0)
@@ -109,9 +110,9 @@ namespace ChatApplication
         {
             Node tmp = head;
             ChatRoom x = null;
-            for(int i =0; i<count; i++)
+            for (int i = 0; i < count; i++)
             {
-                if(chatRoomId == tmp.value.chatRoomId)
+                if (chatRoomId == tmp.value.chatRoomId)
                 {
                     x = tmp.value;
                     DeleteAt(i);
@@ -122,11 +123,32 @@ namespace ChatApplication
             }
             InsertAt(0, x);
         }
+        public int findPrivateChatroom(long userId)
+        {
+            ChatRoomInfo tempinfo;
+            for (int i = 0; i < Length(); i++)
+            {
+                tempinfo = At(i).ChatRoomInfo;
+                if (tempinfo.ListUsers.Count == 2)
+                {
+                    foreach (User user in tempinfo.ListUsers)
+                    {
+                        if (user.UserId == userId)
+                        {
+                            return i;
+                        }
+                    }
+                }
+            }
 
+            return -1;
+        }
 
     }
-   
+
 }
+   
+
 
    
 

@@ -1,11 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ShowAllFiles>false</ShowAllFiles>
+  </PropertyGroup>
   <ItemGroup>
+    <Compile Update="ChatRoomUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="ContactsStories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Contacts\AddNewContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Contacts\ContactDiscriptor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Contacts\ContactItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Contacts\ContactList.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CreateAccount.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomDropDownMenu.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Update="ListItem.cs">
       <SubType>UserControl</SubType>
@@ -16,11 +40,23 @@
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MessageDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MessageItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="ProfileDescriptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RoundedButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="StoryContact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="StoryForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="TextBoxG.cs">
       <SubType>UserControl</SubType>
@@ -31,5 +67,13 @@
     <Compile Update="ViewChatRooms.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ViewProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Contacts\AddNewContactForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
